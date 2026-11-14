@@ -1,0 +1,794 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "TicketForge API Tests - Part 2",
+    "collectionId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+    "dateExported": "2026-11-07T18:53:46.202Z",
+    "version": "1.4",
+    "folders": [
+        {
+            "_id": "66ac7d74-13b8-4dc4-8e7d-bd084f43afd6",
+            "name": "03 - Tickets",
+            "containerId": "",
+            "created": "2026-11-07T18:05:46.411Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "460cd458-1cce-4e9d-8ab0-fc6408676527",
+            "name": "04 - Reviews",
+            "containerId": "",
+            "created": "2026-11-07T18:05:47.909Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "b248ab8e-f862-491a-b91b-463885550921",
+            "name": "02-Events 2",
+            "containerId": "",
+            "created": "2026-11-07T18:07:53.908Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "4dd74234-1a13-4a8e-a113-319441404ef6",
+            "name": "05 - Artists",
+            "containerId": "",
+            "created": "2026-11-07T18:05:49.320Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "2de0318d-fb10-4b09-848e-77f42070eb97",
+            "name": "06 - Cast Members",
+            "containerId": "",
+            "created": "2026-11-07T18:05:50.427Z",
+            "sortNum": 40000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "6dda4703-fcc1-41f7-950f-f3e46f99165b",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "b248ab8e-f862-491a-b91b-463885550921",
+            "name": "POST - Events - Create Sports Event Error",
+            "url": "http://localhost:5000/api/events/9/sport-details",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2026-11-07T18:05:58.195Z",
+            "modified": "2026-11-07T18:05:58.195Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"home_team\": \"Millonarios\",",
+                    "  \"away_team\": \"Santa Fe\",",
+                    "  \"scoreboard\": \"0-0\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzEwMjQsImV4cCI6MTc5NDA3NDYyNH0.4Ajw72PB3-29JaNznUWYhELetpn9bBLivcVcBNnfnUk"
+            }
+        },
+        {
+            "_id": "485aaf68-23fb-45ce-8026-95d23f31cf93",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "b248ab8e-f862-491a-b91b-463885550921",
+            "name": "POST - Events - Create Sports Event Error",
+            "url": "http://localhost:5000/api/events/9/sport-details",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2026-11-07T18:05:59.343Z",
+            "modified": "2026-11-07T18:05:59.343Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"home_team\": \"Millonarios\",",
+                    "  \"away_team\": \"Santa Fe\",",
+                    "  \"scoreboard\": \"0-0\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzEwMjQsImV4cCI6MTc5NDA3NDYyNH0.4Ajw72PB3-29JaNznUWYhELetpn9bBLivcVcBNnfnUk"
+            }
+        },
+        {
+            "_id": "b9a6d96d-54e7-485f-8855-7750dddbb653",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "b248ab8e-f862-491a-b91b-463885550921",
+            "name": "PATCH - Sport Details - Update Scoreboard",
+            "url": "http://localhost:5000/api/events/9/sport-details",
+            "method": "PATCH",
+            "sortNum": 30000,
+            "created": "2026-11-07T18:08:47.562Z",
+            "modified": "2026-11-07T18:08:47.562Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"scoreboard\": \"2-1\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzQ3OTcsImV4cCI6MTc5NDA3ODM5N30.dFmm1EKd_Neq-Ryt3k16MDZLaTUD1dHcjPyh0GFBKSU"
+            }
+        },
+        {
+            "_id": "7ce68e9f-43e5-40c3-b695-8d1fc975ba5a",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "b248ab8e-f862-491a-b91b-463885550921",
+            "name": "PATCH - Sport Details - Update Scoreboard Error",
+            "url": "http://localhost:5000/api/events/9999/sport-details",
+            "method": "PATCH",
+            "sortNum": 40000,
+            "created": "2026-11-07T18:09:33.610Z",
+            "modified": "2026-11-07T18:09:33.610Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"scoreboard\": \"3-1\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzQ3OTcsImV4cCI6MTc5NDA3ODM5N30.dFmm1EKd_Neq-Ryt3k16MDZLaTUD1dHcjPyh0GFBKSU"
+            }
+        },
+        {
+            "_id": "53661ee3-d49f-4ad3-a31f-c411cae3e207",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "66ac7d74-13b8-4dc4-8e7d-bd084f43afd6",
+            "name": "GET - Tickets - Get All Tickets",
+            "url": "http://localhost:5000/api/tickets",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2026-11-07T18:12:43.544Z",
+            "modified": "2026-11-07T18:12:43.544Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzQ3OTcsImV4cCI6MTc5NDA3ODM5N30.dFmm1EKd_Neq-Ryt3k16MDZLaTUD1dHcjPyh0GFBKSU"
+            }
+        },
+        {
+            "_id": "565e30be-7908-4fd0-ac5b-f245d6cf9d96",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "66ac7d74-13b8-4dc4-8e7d-bd084f43afd6",
+            "name": "GET - Tickets - Get All Tickets Error",
+            "url": "http://localhost:5000/api/tickets",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2026-11-07T18:13:36.028Z",
+            "modified": "2026-11-07T18:13:36.028Z",
+            "headers": []
+        },
+        {
+            "_id": "c46072be-e814-4d14-9fa3-8c34f5fb276a",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "66ac7d74-13b8-4dc4-8e7d-bd084f43afd6",
+            "name": "GET - Tickets - Get Tickets By User",
+            "url": "http://localhost:5000/api/tickets/user/2",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2026-11-07T18:14:50.012Z",
+            "modified": "2026-11-07T18:14:50.012Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoidXNlciIsImlhdCI6MTc5NDA3NTMyNywiZXhwIjoxNzk0MDc4OTI3fQ.258PKpAeheiYLYGA7MEvWhhf_q5D7hNFkkxzPj30qFs"
+            }
+        },
+        {
+            "_id": "8f30ce99-1f2b-4d00-a9d2-26988c3246d7",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "66ac7d74-13b8-4dc4-8e7d-bd084f43afd6",
+            "name": "GET - Tickets - Get Tickets By User Eroor",
+            "url": "http://localhost:5000/api/tickets/user/4",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2026-11-07T18:15:57.040Z",
+            "modified": "2026-11-07T18:15:57.040Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoidXNlciIsImlhdCI6MTc5NDA3NTMyNywiZXhwIjoxNzk0MDc4OTI3fQ.258PKpAeheiYLYGA7MEvWhhf_q5D7hNFkkxzPj30qFs"
+            }
+        },
+        {
+            "_id": "dd027913-22b0-4c80-8a54-6fa579bcd1b0",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "66ac7d74-13b8-4dc4-8e7d-bd084f43afd6",
+            "name": "GET - Tickets - Daily Sales",
+            "url": "http://localhost:5000/api/tickets/admin/daily-sales",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2026-11-07T18:17:11.397Z",
+            "modified": "2026-11-07T18:17:11.397Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzUzOTYsImV4cCI6MTc5NDA3ODk5Nn0.9Rdrb6-Yy2kiSvecMWJ5frvGdFpv3BYEg_fAbZVPCgs"
+            }
+        },
+        {
+            "_id": "cca0da98-c34d-4b0c-bd17-46f9c9c39b95",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "66ac7d74-13b8-4dc4-8e7d-bd084f43afd6",
+            "name": "GET - Tickets - Daily Sales Error",
+            "url": "http://localhost:5000/api/tickets/admin/daily-sales",
+            "method": "GET",
+            "sortNum": 120000,
+            "created": "2026-11-07T18:17:41.294Z",
+            "modified": "2026-11-07T18:17:41.294Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoidXNlciIsImlhdCI6MTc5NDA3NTMyNywiZXhwIjoxNzk0MDc4OTI3fQ.258PKpAeheiYLYGA7MEvWhhf_q5D7hNFkkxzPj30qFs"
+            }
+        },
+        {
+            "_id": "1462d7aa-8f9b-4162-bbbb-248908aa48c0",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "66ac7d74-13b8-4dc4-8e7d-bd084f43afd6",
+            "name": "GET - Tickets - Get Ticket By ID",
+            "url": "http://localhost:5000/api/tickets/3",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2026-11-07T18:18:59.807Z",
+            "modified": "2026-11-07T18:18:59.807Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzQ3OTcsImV4cCI6MTc5NDA3ODM5N30.dFmm1EKd_Neq-Ryt3k16MDZLaTUD1dHcjPyh0GFBKSU"
+            }
+        },
+        {
+            "_id": "c81d93fe-37f1-4445-aa31-68d23707bd6b",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "66ac7d74-13b8-4dc4-8e7d-bd084f43afd6",
+            "name": "GET - Tickets - Get Ticket By ID Error",
+            "url": "http://localhost:5000/api/tickets/999",
+            "method": "GET",
+            "sortNum": 140000,
+            "created": "2026-11-07T18:19:26.428Z",
+            "modified": "2026-11-07T18:19:26.428Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzQ3OTcsImV4cCI6MTc5NDA3ODM5N30.dFmm1EKd_Neq-Ryt3k16MDZLaTUD1dHcjPyh0GFBKSU"
+            }
+        },
+        {
+            "_id": "6a8a6104-9359-431d-b0ed-865a76e56d6b",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "66ac7d74-13b8-4dc4-8e7d-bd084f43afd6",
+            "name": "POST - Tickets - Create Ticket",
+            "url": "http://localhost:5000/api/tickets",
+            "method": "POST",
+            "sortNum": 150000,
+            "created": "2026-11-07T18:21:46.390Z",
+            "modified": "2026-11-07T18:21:46.390Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"event_id\": 3,",
+                    "  \"paid_price\": 50000",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoidXNlciIsImlhdCI6MTc5NDA3NTMyNywiZXhwIjoxNzk0MDc4OTI3fQ.258PKpAeheiYLYGA7MEvWhhf_q5D7hNFkkxzPj30qFs"
+            }
+        },
+        {
+            "_id": "67062e64-541f-450f-931d-c9bc740a0f38",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "66ac7d74-13b8-4dc4-8e7d-bd084f43afd6",
+            "name": "POST - Tickets - Create Ticket Error",
+            "url": "http://localhost:5000/api/tickets",
+            "method": "POST",
+            "sortNum": 160000,
+            "created": "2026-11-07T18:22:34.464Z",
+            "modified": "2026-11-07T18:22:34.464Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"event_id\": 2,",
+                    "  \"paid_price\": 85000",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoidXNlciIsImlhdCI6MTc5NDA3NTMyNywiZXhwIjoxNzk0MDc4OTI3fQ.258PKpAeheiYLYGA7MEvWhhf_q5D7hNFkkxzPj30qFs"
+            }
+        },
+        {
+            "_id": "8fe99ded-0276-4ce1-8fdc-979aa747de71",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "66ac7d74-13b8-4dc4-8e7d-bd084f43afd6",
+            "name": "DELETE - Tickets - Delete Ticket",
+            "url": "http://localhost:5000/api/tickets/6",
+            "method": "DELETE",
+            "sortNum": 170000,
+            "created": "2026-11-07T18:23:30.349Z",
+            "modified": "2026-11-07T18:23:30.349Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzUzOTYsImV4cCI6MTc5NDA3ODk5Nn0.9Rdrb6-Yy2kiSvecMWJ5frvGdFpv3BYEg_fAbZVPCgs"
+            }
+        },
+        {
+            "_id": "caf86fef-0044-494f-907b-7cee24435d13",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "66ac7d74-13b8-4dc4-8e7d-bd084f43afd6",
+            "name": "DELETE - Tickets - Delete Ticket Error",
+            "url": "http://localhost:5000/api/tickets/9999",
+            "method": "DELETE",
+            "sortNum": 180000,
+            "created": "2026-11-07T18:24:59.538Z",
+            "modified": "2026-11-07T18:24:59.538Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzUzOTYsImV4cCI6MTc5NDA3ODk5Nn0.9Rdrb6-Yy2kiSvecMWJ5frvGdFpv3BYEg_fAbZVPCgs"
+            }
+        },
+        {
+            "_id": "dd50c11f-17e8-4ab1-a49f-9bc16fbdd00f",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "460cd458-1cce-4e9d-8ab0-fc6408676527",
+            "name": "GET - Reviews - Get All Reviews",
+            "url": "http://localhost:5000/api/reviews",
+            "method": "GET",
+            "sortNum": 190000,
+            "created": "2026-11-07T18:25:51.994Z",
+            "modified": "2026-11-07T18:25:51.994Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzUzOTYsImV4cCI6MTc5NDA3ODk5Nn0.9Rdrb6-Yy2kiSvecMWJ5frvGdFpv3BYEg_fAbZVPCgs"
+            }
+        },
+        {
+            "_id": "80e8a250-d93e-444b-a2e1-9bf3370923d5",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "460cd458-1cce-4e9d-8ab0-fc6408676527",
+            "name": "GET - Reviews - Get All Reviews Error",
+            "url": "http://localhost:5000/api/reviews",
+            "method": "GET",
+            "sortNum": 200000,
+            "created": "2026-11-07T18:26:34.888Z",
+            "modified": "2026-11-07T18:26:34.888Z",
+            "headers": []
+        },
+        {
+            "_id": "0bb956fd-17d5-45c5-8f65-7f020872ffac",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "460cd458-1cce-4e9d-8ab0-fc6408676527",
+            "name": "GET - Reviews - Get Reviews By Event",
+            "url": "http://localhost:5000/api/reviews/event/2",
+            "method": "GET",
+            "sortNum": 210000,
+            "created": "2026-11-07T18:27:21.120Z",
+            "modified": "2026-11-07T18:27:21.120Z",
+            "headers": []
+        },
+        {
+            "_id": "52c80d5e-831a-421e-b534-b07f134d1fb5",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "460cd458-1cce-4e9d-8ab0-fc6408676527",
+            "name": "GET - Reviews - Get Reviews By Event Error",
+            "url": "http://localhost:5000/api/reviews/event/9999",
+            "method": "GET",
+            "sortNum": 220000,
+            "created": "2026-11-07T18:27:44.686Z",
+            "modified": "2026-11-07T18:27:44.686Z",
+            "headers": []
+        },
+        {
+            "_id": "ddde7caf-28e3-4fe1-b172-d6e0a96a8108",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "460cd458-1cce-4e9d-8ab0-fc6408676527",
+            "name": "GET - Reviews - Get Reviews By User",
+            "url": "http://localhost:5000/api/reviews/user/2",
+            "method": "GET",
+            "sortNum": 230000,
+            "created": "2026-11-07T18:28:33.212Z",
+            "modified": "2026-11-07T18:28:33.212Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoidXNlciIsImlhdCI6MTc5NDA3NTMyNywiZXhwIjoxNzk0MDc4OTI3fQ.258PKpAeheiYLYGA7MEvWhhf_q5D7hNFkkxzPj30qFs"
+            }
+        },
+        {
+            "_id": "d94a1e1d-4bbd-4990-9b36-5d4545e6df26",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "460cd458-1cce-4e9d-8ab0-fc6408676527",
+            "name": "GET - Reviews - Get Reviews By User Error",
+            "url": "http://localhost:5000/api/reviews/user/4",
+            "method": "GET",
+            "sortNum": 240000,
+            "created": "2026-11-07T18:30:35.684Z",
+            "modified": "2026-11-07T18:30:35.684Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoidXNlciIsImlhdCI6MTc5NDA3NTMyNywiZXhwIjoxNzk0MDc4OTI3fQ.258PKpAeheiYLYGA7MEvWhhf_q5D7hNFkkxzPj30qFs"
+            }
+        },
+        {
+            "_id": "bd7ee844-2dd7-4546-80b5-f5eea1814225",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "460cd458-1cce-4e9d-8ab0-fc6408676527",
+            "name": "GET - Reviews - Get Review By ID",
+            "url": "http://localhost:5000/api/reviews/1",
+            "method": "GET",
+            "sortNum": 250000,
+            "created": "2026-11-07T18:31:35.841Z",
+            "modified": "2026-11-07T18:31:35.841Z",
+            "headers": []
+        },
+        {
+            "_id": "af5bd4be-2a90-485b-abcd-137099bcb5e3",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "460cd458-1cce-4e9d-8ab0-fc6408676527",
+            "name": "GET - Reviews - Get Review By ID Error",
+            "url": "http://localhost:5000/api/reviews/9999",
+            "method": "GET",
+            "sortNum": 260000,
+            "created": "2026-11-07T18:31:55.551Z",
+            "modified": "2026-11-07T18:31:55.551Z",
+            "headers": []
+        },
+        {
+            "_id": "5fb07040-b1d2-47ca-944c-657d27406e9b",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "460cd458-1cce-4e9d-8ab0-fc6408676527",
+            "name": "POST - Reviews - Create Review",
+            "url": "http://localhost:5000/api/reviews",
+            "method": "POST",
+            "sortNum": 270000,
+            "created": "2026-11-07T18:32:39.140Z",
+            "modified": "2026-11-07T18:32:39.140Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"event_id\": 2,",
+                    "  \"rating\": 5,",
+                    "  \"comment\": \"Excelente experiencia en el evento.\",",
+                    "  \"seat_quality\": \"Excelente\",",
+                    "  \"tags\": [\"Buen ambiente\"]",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoidXNlciIsImlhdCI6MTc5NDA3NTMyNywiZXhwIjoxNzk0MDc4OTI3fQ.258PKpAeheiYLYGA7MEvWhhf_q5D7hNFkkxzPj30qFs"
+            }
+        },
+        {
+            "_id": "f4741d33-081c-4f90-b32e-6b2ceed50748",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "460cd458-1cce-4e9d-8ab0-fc6408676527",
+            "name": "POST - Reviews - Create Review Error",
+            "url": "http://localhost:5000/api/reviews",
+            "method": "POST",
+            "sortNum": 280000,
+            "created": "2026-11-07T18:33:19.418Z",
+            "modified": "2026-11-07T18:33:19.418Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "",
+                    " {",
+                    "  \"event_id\": 2,",
+                    "  \"rating\": 8,",
+                    "  \"comment\": \"Reseña con calificación inválida.\",",
+                    "  \"seat_quality\": \"Buena\",",
+                    "  \"tags\": []",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoidXNlciIsImlhdCI6MTc5NDA3NTMyNywiZXhwIjoxNzk0MDc4OTI3fQ.258PKpAeheiYLYGA7MEvWhhf_q5D7hNFkkxzPj30qFs"
+            }
+        },
+        {
+            "_id": "46959af1-dc5e-4096-8d6e-cee353e19ab4",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "460cd458-1cce-4e9d-8ab0-fc6408676527",
+            "name": "DELETE - Reviews - Delete Review",
+            "url": "http://localhost:5000/api/reviews/4",
+            "method": "DELETE",
+            "sortNum": 290000,
+            "created": "2026-11-07T18:34:21.485Z",
+            "modified": "2026-11-07T18:34:21.485Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzUzOTYsImV4cCI6MTc5NDA3ODk5Nn0.9Rdrb6-Yy2kiSvecMWJ5frvGdFpv3BYEg_fAbZVPCgs"
+            }
+        },
+        {
+            "_id": "708fbc9b-0ea1-48f6-a094-075e3a8d389e",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "460cd458-1cce-4e9d-8ab0-fc6408676527",
+            "name": "DELETE - Reviews - Delete Review Error",
+            "url": "http://localhost:5000/api/reviews/43",
+            "method": "DELETE",
+            "sortNum": 300000,
+            "created": "2026-11-07T18:35:08.620Z",
+            "modified": "2026-11-07T18:35:08.620Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzUzOTYsImV4cCI6MTc5NDA3ODk5Nn0.9Rdrb6-Yy2kiSvecMWJ5frvGdFpv3BYEg_fAbZVPCgs"
+            }
+        },
+        {
+            "_id": "4b32125e-492c-45be-bbcd-f52f618b86be",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "4dd74234-1a13-4a8e-a113-319441404ef6",
+            "name": "GET - Artists - Get All Artists",
+            "url": "http://localhost:5000/api/artists",
+            "method": "GET",
+            "sortNum": 310000,
+            "created": "2026-11-07T18:35:44.712Z",
+            "modified": "2026-11-07T18:35:44.712Z",
+            "headers": []
+        },
+        {
+            "_id": "6e1fd246-87b6-4973-bcc2-828f1a66abed",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "4dd74234-1a13-4a8e-a113-319441404ef6",
+            "name": "GET - Artists - Artists - Get Artist By ID Error",
+            "url": "http://localhost:5000/api/artists/9999",
+            "method": "GET",
+            "sortNum": 320000,
+            "created": "2026-11-07T18:36:35.398Z",
+            "modified": "2026-11-07T18:36:35.398Z",
+            "headers": []
+        },
+        {
+            "_id": "84ac3452-6f10-4b22-b047-906fb973a3f6",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "4dd74234-1a13-4a8e-a113-319441404ef6",
+            "name": "GET - Artists - Get Artist By ID",
+            "url": "http://localhost:5000/api/artists/1",
+            "method": "GET",
+            "sortNum": 330000,
+            "created": "2026-11-07T18:38:33.368Z",
+            "modified": "2026-11-07T18:38:33.368Z",
+            "headers": []
+        },
+        {
+            "_id": "6d983f65-f647-45ee-b9f0-ad65aa19d50f",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "4dd74234-1a13-4a8e-a113-319441404ef6",
+            "name": "POST - Artists - Create Artist",
+            "url": "http://localhost:5000/api/artists",
+            "method": "POST",
+            "sortNum": 340000,
+            "created": "2026-11-07T18:39:35.484Z",
+            "modified": "2026-11-07T18:39:35.484Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"name\": \"Artista TicketForge Nuevo\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzY4MDUsImV4cCI6MTc5NDA4MDQwNX0.M06HRGslId9wqZ-paJvXMkpqIzqScavYCC3uMP9P2II"
+            }
+        },
+        {
+            "_id": "e21ddc54-b715-4b46-a3c8-38e8cb939b94",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "4dd74234-1a13-4a8e-a113-319441404ef6",
+            "name": "POST - Artists - Error",
+            "url": "http://localhost:5000/api/artists",
+            "method": "POST",
+            "sortNum": 350000,
+            "created": "2026-11-07T18:40:25.415Z",
+            "modified": "2026-11-07T18:40:25.415Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"name\": \"\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzY4MDUsImV4cCI6MTc5NDA4MDQwNX0.M06HRGslId9wqZ-paJvXMkpqIzqScavYCC3uMP9P2II"
+            }
+        },
+        {
+            "_id": "e177e7cf-3a07-437c-b307-9345067f4769",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "4dd74234-1a13-4a8e-a113-319441404ef6",
+            "name": "DELETE - Artists - Delete Artist",
+            "url": "http://localhost:5000/api/artists/4",
+            "method": "DELETE",
+            "sortNum": 360000,
+            "created": "2026-11-07T18:41:49.923Z",
+            "modified": "2026-11-07T18:41:49.923Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzY4MDUsImV4cCI6MTc5NDA4MDQwNX0.M06HRGslId9wqZ-paJvXMkpqIzqScavYCC3uMP9P2II"
+            }
+        },
+        {
+            "_id": "b283ca2f-631c-4966-ae9d-93a9c90a9427",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "4dd74234-1a13-4a8e-a113-319441404ef6",
+            "name": "DELETE - Artists - Delete Artist Error",
+            "url": "http://localhost:5000/api/artists/9999",
+            "method": "DELETE",
+            "sortNum": 370000,
+            "created": "2026-11-07T18:42:13.207Z",
+            "modified": "2026-11-07T18:42:13.207Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzY4MDUsImV4cCI6MTc5NDA4MDQwNX0.M06HRGslId9wqZ-paJvXMkpqIzqScavYCC3uMP9P2II"
+            }
+        },
+        {
+            "_id": "0e4fb52a-774f-4d1c-887d-ce5990f056ee",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "2de0318d-fb10-4b09-848e-77f42070eb97",
+            "name": "GET - Cast Members - Get All Cast Members",
+            "url": "http://localhost:5000/api/cast-members",
+            "method": "GET",
+            "sortNum": 380000,
+            "created": "2026-11-07T18:43:14.840Z",
+            "modified": "2026-11-07T18:43:14.840Z",
+            "headers": []
+        },
+        {
+            "_id": "2c988ba4-8592-4fa3-b695-916c465a4098",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "2de0318d-fb10-4b09-848e-77f42070eb97",
+            "name": "GET - Cast Members - Cast Member Not Found",
+            "url": "http://localhost:5000/api/cast-members/9999",
+            "method": "GET",
+            "sortNum": 390000,
+            "created": "2026-11-07T18:44:04.022Z",
+            "modified": "2026-11-07T18:44:04.023Z",
+            "headers": []
+        },
+        {
+            "_id": "36e59e8d-6cdd-4a50-840e-40e55ae0f598",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "2de0318d-fb10-4b09-848e-77f42070eb97",
+            "name": "GET - Cast Members - ID",
+            "url": "http://localhost:5000/api/cast-members/3",
+            "method": "GET",
+            "sortNum": 400000,
+            "created": "2026-11-07T18:44:54.178Z",
+            "modified": "2026-11-07T18:44:54.178Z",
+            "headers": []
+        },
+        {
+            "_id": "3c2f6bdc-8023-4999-a4f6-ec8f796fa9b9",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "2de0318d-fb10-4b09-848e-77f42070eb97",
+            "name": "POST - Cast Members - Create Cast Member",
+            "url": "http://localhost:5000/api/cast-members",
+            "method": "POST",
+            "sortNum": 410000,
+            "created": "2026-11-07T18:45:45.121Z",
+            "modified": "2026-11-07T18:45:45.121Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"name\": \"Actor TicketForge Nuevo\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzY4MDUsImV4cCI6MTc5NDA4MDQwNX0.M06HRGslId9wqZ-paJvXMkpqIzqScavYCC3uMP9P2II"
+            }
+        },
+        {
+            "_id": "869869b2-c9a6-4285-ae8c-ee102d657950",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "2de0318d-fb10-4b09-848e-77f42070eb97",
+            "name": "POST - Cast Members - Create Cast Member Error",
+            "url": "http://localhost:5000/api/cast-members",
+            "method": "POST",
+            "sortNum": 420000,
+            "created": "2026-11-07T18:46:20.725Z",
+            "modified": "2026-11-07T18:46:20.725Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"name\": \"\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzY4MDUsImV4cCI6MTc5NDA4MDQwNX0.M06HRGslId9wqZ-paJvXMkpqIzqScavYCC3uMP9P2II"
+            }
+        },
+        {
+            "_id": "90423cf7-187a-4cb2-ac4c-95fca4054c43",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "2de0318d-fb10-4b09-848e-77f42070eb97",
+            "name": "DELETE - Cast Members - Delete Cast Member",
+            "url": "http://localhost:5000/api/cast-members/5",
+            "method": "DELETE",
+            "sortNum": 430000,
+            "created": "2026-11-07T18:46:57.975Z",
+            "modified": "2026-11-07T18:46:57.976Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzY4MDUsImV4cCI6MTc5NDA4MDQwNX0.M06HRGslId9wqZ-paJvXMkpqIzqScavYCC3uMP9P2II"
+            }
+        },
+        {
+            "_id": "5555a671-79cf-4500-883c-096a48f82351",
+            "colId": "740b3a30-3092-4aa7-b2d0-8cc39d8c523d",
+            "containerId": "2de0318d-fb10-4b09-848e-77f42070eb97",
+            "name": "DELETE - Cast Members - Delete Cast Member Error",
+            "url": "http://localhost:5000/api/cast-members/455",
+            "method": "DELETE",
+            "sortNum": 440000,
+            "created": "2026-11-07T18:47:30.121Z",
+            "modified": "2026-11-07T18:47:30.121Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzY4MDUsImV4cCI6MTc5NDA4MDQwNX0.M06HRGslId9wqZ-paJvXMkpqIzqScavYCC3uMP9P2II"
+            }
+        }
+    ],
+    "ref": "Z8Amf0PqIkoyV4oQoFpkEYY4CSgDzU04zsnGUFCVx0v8k9Bqpf_z0s6pwqxOJBZoHOOalo9q-7YNNLAj_jyhNg"
+}

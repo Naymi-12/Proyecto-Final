@@ -69,11 +69,11 @@ async function loginUser(req, res) {
             email.trim().toLowerCase()
         );
 
-        if (!user || user.password !== password) {
-            return res.status(401).json({
-                message: 'Invalid email or password'
-            });
-        }
+            if (!user || !(await usersService.verifyPassword(password, user.password))
+             ) {
+              return res.status(401).json({ message: 'Invalid email or password'
+           });
+          }
 
         const token = jwt.sign(
             {

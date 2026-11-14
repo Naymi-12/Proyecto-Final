@@ -1,0 +1,1027 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "TicketForge API Tests",
+    "collectionId": "77742b60-da98-4c01-b802-64ebb47028e6",
+    "dateExported": "2026-11-07T18:52:19.762Z",
+    "version": "1.4",
+    "folders": [
+        {
+            "_id": "69639e81-3c67-4bd7-a57e-6e1131fae05e",
+            "name": "01 - Users",
+            "containerId": "",
+            "created": "2026-11-07T15:56:43.841Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "02 - Events",
+            "containerId": "",
+            "created": "2026-11-07T15:57:16.739Z",
+            "sortNum": 40000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "3b192073-a3ad-466a-91b5-e47502095718",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "69639e81-3c67-4bd7-a57e-6e1131fae05e",
+            "name": "POST - Create User - Success",
+            "url": "http://localhost:5000/api/users",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2026-11-07T15:59:38.868Z",
+            "modified": "2026-11-07T15:59:38.869Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"name\": \"Usuario Prueba\",",
+                    "  \"email\": \"usuarioprueba2026@gmail.com\",",
+                    "  \"password\": \"Prueba2026\",",
+                    "  \"role\": \"user\"",
+                    "}"
+                ],
+                "form": []
+            }
+        },
+        {
+            "_id": "3da95e54-4511-401d-88b1-62b0f182bbb8",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "69639e81-3c67-4bd7-a57e-6e1131fae05e",
+            "name": "POST - Create User - Error",
+            "url": "http://localhost:5000/api/users",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2026-11-07T16:02:44.664Z",
+            "modified": "2026-11-07T16:02:44.664Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"name\": \"Usuario Sin Email\",",
+                    "  \"password\": \"Prueba2026\",",
+                    "  \"role\": \"user\"",
+                    "}"
+                ],
+                "form": []
+            }
+        },
+        {
+            "_id": "b66c3852-fa0f-4fcf-896d-f94473b0ea06",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "69639e81-3c67-4bd7-a57e-6e1131fae05e",
+            "name": "POST - Login - Success-Admi",
+            "url": "http://localhost:5000/api/users/login",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2026-11-07T16:04:20.628Z",
+            "modified": "2026-11-07T16:04:20.628Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"email\": \"maria@gmail.com\",",
+                    "  \"password\": \"123456\"",
+                    "}"
+                ],
+                "form": []
+            }
+        },
+        {
+            "_id": "9fac6676-d836-4ff2-966e-5c74baad9a1c",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "69639e81-3c67-4bd7-a57e-6e1131fae05e",
+            "name": "POST - Login - Error",
+            "url": "http://localhost:5000/api/users/login",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2026-11-07T16:06:08.638Z",
+            "modified": "2026-11-07T16:06:08.638Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"email\": \"usuarioprueba2026@gmail.com\",",
+                    "  \"password\": \"ClaveIncorrecta123\"",
+                    "}"
+                ],
+                "form": []
+            }
+        },
+        {
+            "_id": "aaae7a76-0aef-42a1-8137-e8c2d31f2b0e",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "69639e81-3c67-4bd7-a57e-6e1131fae05e",
+            "name": "POST - Login - Success-User",
+            "url": "http://localhost:5000/api/users/login",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2026-11-07T16:12:41.104Z",
+            "modified": "2026-11-07T16:12:41.104Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"email\": \"juan@gmail.com\",",
+                    "  \"password\": \"123456\"",
+                    "}"
+                ],
+                "form": []
+            }
+        },
+        {
+            "_id": "1df86f09-1720-47a5-be25-e987a3dbd17f",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "69639e81-3c67-4bd7-a57e-6e1131fae05e",
+            "name": "GET - Get All Users - Success",
+            "url": "http://localhost:5000/api/users",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2026-11-07T16:10:20.674Z",
+            "modified": "2026-11-07T16:10:20.674Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNjc3MTEsImV4cCI6MTc5NDA3MTMxMX0.-AjycbU05PriS9yIQUrpveMdlzh6dQlJH-K3ZMNKM1k"
+            }
+        },
+        {
+            "_id": "57b142fb-e259-4cd1-a469-a9cc27888cdb",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "69639e81-3c67-4bd7-a57e-6e1131fae05e",
+            "name": "GET - Get All Users - Error",
+            "url": "http://localhost:5000/api/users",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2026-11-07T16:11:16.289Z",
+            "modified": "2026-11-07T16:11:16.289Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoidXNlciIsImlhdCI6MTc5NDA2Nzk2OSwiZXhwIjoxNzk0MDcxNTY5fQ.d1VrMql-qRLI_fwL7kCWDV8sanLBtjeKfggdYApMr_s"
+            }
+        },
+        {
+            "_id": "04c0604a-36ea-406b-a33e-3835856831a7",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "69639e81-3c67-4bd7-a57e-6e1131fae05e",
+            "name": "GET - Get User By ID - Success",
+            "url": "http://localhost:5000/api/users/2",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2026-11-07T16:16:59.715Z",
+            "modified": "2026-11-07T16:16:59.715Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoidXNlciIsImlhdCI6MTc5NDA2Nzk2OSwiZXhwIjoxNzk0MDcxNTY5fQ.d1VrMql-qRLI_fwL7kCWDV8sanLBtjeKfggdYApMr_s"
+            }
+        },
+        {
+            "_id": "adb024d2-4243-4085-a6df-b1b9ab0191b0",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "69639e81-3c67-4bd7-a57e-6e1131fae05e",
+            "name": "GET - Get User By ID - Error",
+            "url": "http://localhost:5000/api/users/11",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2026-11-07T16:19:25.478Z",
+            "modified": "2026-11-07T16:19:25.478Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoidXNlciIsImlhdCI6MTc5NDA2Nzk2OSwiZXhwIjoxNzk0MDcxNTY5fQ.d1VrMql-qRLI_fwL7kCWDV8sanLBtjeKfggdYApMr_s"
+            }
+        },
+        {
+            "_id": "01ebde99-b79a-49e1-8469-b197fc97c367",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "69639e81-3c67-4bd7-a57e-6e1131fae05e",
+            "name": "PUT - Update User - Success",
+            "url": "http://localhost:5000/api/users/11",
+            "method": "PUT",
+            "sortNum": 110000,
+            "created": "2026-11-07T16:20:50.634Z",
+            "modified": "2026-11-07T16:20:50.634Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"name\": \"Usuario Prueba PUT\",",
+                    "  \"email\": \"usuarioprueba2026@gmail.com\",",
+                    "  \"password\": \"Prueba2026\",",
+                    "  \"role\": \"user\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNjc3MTEsImV4cCI6MTc5NDA3MTMxMX0.-AjycbU05PriS9yIQUrpveMdlzh6dQlJH-K3ZMNKM1k"
+            }
+        },
+        {
+            "_id": "f157cc9a-6d66-4172-930f-53cc643dd822",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "69639e81-3c67-4bd7-a57e-6e1131fae05e",
+            "name": "PUT - Update User - Error",
+            "url": "http://localhost:5000/api/users/99999",
+            "method": "PUT",
+            "sortNum": 120000,
+            "created": "2026-11-07T16:22:26.490Z",
+            "modified": "2026-11-07T16:22:26.490Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"name\": \"Usuario Inexistente\",",
+                    "  \"email\": \"inexistente2026@gmail.com\",",
+                    "  \"password\": \"Prueba2026\",",
+                    "  \"role\": \"user\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNjc3MTEsImV4cCI6MTc5NDA3MTMxMX0.-AjycbU05PriS9yIQUrpveMdlzh6dQlJH-K3ZMNKM1k"
+            }
+        },
+        {
+            "_id": "e71bfb31-b4a9-4cd6-bbd6-8d985021978c",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "69639e81-3c67-4bd7-a57e-6e1131fae05e",
+            "name": "PATCH - Update User - Success",
+            "url": "http://localhost:5000/api/users/11",
+            "method": "PATCH",
+            "sortNum": 130000,
+            "created": "2026-11-07T16:23:57.089Z",
+            "modified": "2026-11-07T16:23:57.089Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"name\": \"Usuario Prueba PATCH\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNjc3MTEsImV4cCI6MTc5NDA3MTMxMX0.-AjycbU05PriS9yIQUrpveMdlzh6dQlJH-K3ZMNKM1k"
+            }
+        },
+        {
+            "_id": "1668fb55-20c4-474a-a788-3e1deff216d1",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "69639e81-3c67-4bd7-a57e-6e1131fae05e",
+            "name": "PATCH - Update User - Error",
+            "url": "http://localhost:5000/api/users/11",
+            "method": "PATCH",
+            "sortNum": 140000,
+            "created": "2026-11-07T16:24:36.099Z",
+            "modified": "2026-11-07T16:24:36.099Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"invalid_field\": \"Valor de prueba\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNjc3MTEsImV4cCI6MTc5NDA3MTMxMX0.-AjycbU05PriS9yIQUrpveMdlzh6dQlJH-K3ZMNKM1k"
+            }
+        },
+        {
+            "_id": "fd1d6d11-48df-447b-b6f4-6dea686b5483",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "69639e81-3c67-4bd7-a57e-6e1131fae05e",
+            "name": "DELETE - Delete User - Success",
+            "url": "http://localhost:5000/api/users/11",
+            "method": "DELETE",
+            "sortNum": 150000,
+            "created": "2026-11-07T16:25:54.467Z",
+            "modified": "2026-11-07T16:25:54.467Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNjc3MTEsImV4cCI6MTc5NDA3MTMxMX0.-AjycbU05PriS9yIQUrpveMdlzh6dQlJH-K3ZMNKM1k"
+            }
+        },
+        {
+            "_id": "7a7087a0-6287-4763-82dc-648ff5ecf79a",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "69639e81-3c67-4bd7-a57e-6e1131fae05e",
+            "name": "DELETE - Delete User - Error",
+            "url": "http://localhost:5000/api/users/99999",
+            "method": "DELETE",
+            "sortNum": 160000,
+            "created": "2026-11-07T16:26:45.300Z",
+            "modified": "2026-11-07T16:26:45.300Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNjc3MTEsImV4cCI6MTc5NDA3MTMxMX0.-AjycbU05PriS9yIQUrpveMdlzh6dQlJH-K3ZMNKM1k"
+            }
+        },
+        {
+            "_id": "6ef08333-81f7-4384-a657-a3c30487d5ae",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "69639e81-3c67-4bd7-a57e-6e1131fae05e",
+            "name": "GET - Get User Tickets - Success",
+            "url": "http://localhost:5000/api/users/2/tickets",
+            "method": "GET",
+            "sortNum": 170000,
+            "created": "2026-11-07T16:27:53.077Z",
+            "modified": "2026-11-07T16:27:53.077Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoidXNlciIsImlhdCI6MTc5NDA2Nzk2OSwiZXhwIjoxNzk0MDcxNTY5fQ.d1VrMql-qRLI_fwL7kCWDV8sanLBtjeKfggdYApMr_s"
+            }
+        },
+        {
+            "_id": "384e4249-2c07-46e6-94fb-3176a0dc0cb2",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "69639e81-3c67-4bd7-a57e-6e1131fae05e",
+            "name": "GET - Get User Tickets - Error",
+            "url": "http://localhost:5000/api/users/4/tickets",
+            "method": "GET",
+            "sortNum": 180000,
+            "created": "2026-11-07T16:28:35.767Z",
+            "modified": "2026-11-07T16:28:35.767Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoidXNlciIsImlhdCI6MTc5NDA2Nzk2OSwiZXhwIjoxNzk0MDcxNTY5fQ.d1VrMql-qRLI_fwL7kCWDV8sanLBtjeKfggdYApMr_s"
+            }
+        },
+        {
+            "_id": "88b2f14a-df2d-419a-9e24-2cfd33af92b6",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "69639e81-3c67-4bd7-a57e-6e1131fae05e",
+            "name": "GET - Get User Reviews - Success",
+            "url": "http://localhost:5000/api/users/2/reviews",
+            "method": "GET",
+            "sortNum": 190000,
+            "created": "2026-11-07T16:29:30.751Z",
+            "modified": "2026-11-07T16:29:30.751Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoidXNlciIsImlhdCI6MTc5NDA2OTU2MywiZXhwIjoxNzk0MDczMTYzfQ.VvPbT1BrJsLivyb14fo4QF9rvPl4eRt24KWMgWU0g5U"
+            }
+        },
+        {
+            "_id": "2e04a6de-5fd2-4687-b203-9d6acac52b60",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "69639e81-3c67-4bd7-a57e-6e1131fae05e",
+            "name": "GET - Get User Reviews - Error",
+            "url": "http://localhost:5000/api/users/4/reviews",
+            "method": "GET",
+            "sortNum": 200000,
+            "created": "2026-11-07T16:30:37.502Z",
+            "modified": "2026-11-07T16:30:37.502Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoidXNlciIsImlhdCI6MTc5NDA2Nzk2OSwiZXhwIjoxNzk0MDcxNTY5fQ.d1VrMql-qRLI_fwL7kCWDV8sanLBtjeKfggdYApMr_s"
+            }
+        },
+        {
+            "_id": "23b35506-f4d3-4181-be04-23480dfcdfab",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "GET - Events - Success",
+            "url": "http://localhost:5000/api/events",
+            "method": "GET",
+            "sortNum": 210000,
+            "created": "2026-11-07T16:57:33.909Z",
+            "modified": "2026-11-07T16:57:33.909Z",
+            "headers": []
+        },
+        {
+            "_id": "e8be4a74-99a9-440e-85bb-b693eabe67ab",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "GET - Events - Error",
+            "url": "http://localhost:5000/api/events?category=festival",
+            "method": "GET",
+            "sortNum": 220000,
+            "created": "2026-11-07T16:58:54.835Z",
+            "modified": "2026-11-07T16:58:54.835Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "category",
+                    "value": "festival",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "b3bfafa0-32f9-46dc-8562-c3e5ed8bafc8",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "GET - Event By ID - Success",
+            "url": "http://localhost:5000/api/events/3",
+            "method": "GET",
+            "sortNum": 230000,
+            "created": "2026-11-07T17:00:11.695Z",
+            "modified": "2026-11-07T17:00:11.695Z",
+            "headers": []
+        },
+        {
+            "_id": "6634f2cf-df1d-4dc9-b2d2-ae5eda00aafc",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "GET - Event By ID - Error",
+            "url": "http://localhost:5000/api/events/9999",
+            "method": "GET",
+            "sortNum": 240000,
+            "created": "2026-11-07T17:00:53.469Z",
+            "modified": "2026-11-07T17:00:53.469Z",
+            "headers": []
+        },
+        {
+            "_id": "8e3d8d00-98cf-4287-9a1a-e010a01d9666",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "POST - Events - Create New Event",
+            "url": "http://localhost:5000/api/events",
+            "method": "POST",
+            "sortNum": 270000,
+            "created": "2026-11-07T17:04:26.692Z",
+            "modified": "2026-11-07T17:04:26.692Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{\r",
+                    "  \"name\": \"Concierto de prueba API\",\r",
+                    "  \"location\": \"Bogota\",\r",
+                    "  \"date_time\": \"2027-05-20 19:00:00\",\r",
+                    "  \"category\": \"concert\",\r",
+                    "  \"min_price\": 50000,\r",
+                    "  \"max_price\": 120000,\r",
+                    "  \"description\": \"Evento creado para probar el endpoint POST.\"\r",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzEwMjQsImV4cCI6MTc5NDA3NDYyNH0.4Ajw72PB3-29JaNznUWYhELetpn9bBLivcVcBNnfnUk"
+            }
+        },
+        {
+            "_id": "1369bb4c-3b45-4ccb-a8d7-a56e0b0b7e7d",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "POST - Events - Create New Event-Error",
+            "url": "http://localhost:5000/api/events",
+            "method": "POST",
+            "sortNum": 280000,
+            "created": "2026-11-07T17:05:26.349Z",
+            "modified": "2026-11-07T17:05:26.349Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{\r",
+                    "  \"name\": \"\",\r",
+                    "  \"location\": \"Bogota\",\r",
+                    "  \"date_time\": \"2027-05-20 19:00:00\",\r",
+                    "  \"category\": \"concert\",\r",
+                    "  \"min_price\": 50000,\r",
+                    "  \"max_price\": 120000,\r",
+                    "  \"description\": \"Prueba de validación.\"\r",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzEwMjQsImV4cCI6MTc5NDA3NDYyNH0.4Ajw72PB3-29JaNznUWYhELetpn9bBLivcVcBNnfnUk"
+            }
+        },
+        {
+            "_id": "307fe393-7b18-4e90-a8d6-0a38927a73cb",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "PUT - Events - Update Existing",
+            "url": "http://localhost:5000/api/events/6",
+            "method": "PUT",
+            "sortNum": 290000,
+            "created": "2026-11-07T17:11:07.976Z",
+            "modified": "2026-11-07T17:11:07.976Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"name\": \"Concierto de prueba API actualizado\",",
+                    "  \"location\": \"Bogota\",",
+                    "  \"date_time\": \"2027-05-20 19:00:00\",",
+                    "  \"category\": \"concert\",",
+                    "  \"min_price\": 55000,",
+                    "  \"max_price\": 130000,",
+                    "  \"description\": \"Evento actualizado para probar el endpoint PUT.\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzEwMjQsImV4cCI6MTc5NDA3NDYyNH0.4Ajw72PB3-29JaNznUWYhELetpn9bBLivcVcBNnfnUk"
+            }
+        },
+        {
+            "_id": "bbe17b00-ce0b-4b5c-b4a2-642b158f7ca8",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "PUT - Events - Update Existing-Error",
+            "url": "http://localhost:5000/api/events/6",
+            "method": "PUT",
+            "sortNum": 300000,
+            "created": "2026-11-07T17:12:02.098Z",
+            "modified": "2026-11-07T17:12:02.098Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"name\": \"Concierto actualizado\",",
+                    "  \"location\": \"Bogota\",",
+                    "  \"date_time\": \"2027-05-20 19:00:00\",",
+                    "  \"category\": \"concert\",",
+                    "  \"min_price\": 55000,",
+                    "  \"max_price\": 130000",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzEwMjQsImV4cCI6MTc5NDA3NDYyNH0.4Ajw72PB3-29JaNznUWYhELetpn9bBLivcVcBNnfnUk"
+            }
+        },
+        {
+            "_id": "69177ce6-ab53-4118-b152-90fdddb8788a",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "PATCH - Events - Update Name",
+            "url": "http://localhost:5000/api/events/6",
+            "method": "PATCH",
+            "sortNum": 320000,
+            "created": "2026-11-07T17:14:31.162Z",
+            "modified": "2026-11-07T17:14:31.162Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"name\": \"Concierto TicketForge - Actualizado parcialmente\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzEwMjQsImV4cCI6MTc5NDA3NDYyNH0.4Ajw72PB3-29JaNznUWYhELetpn9bBLivcVcBNnfnUk"
+            }
+        },
+        {
+            "_id": "158cac9c-d2be-4df1-9bf1-f35c565adcd2",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "PATCH - Events - Update Name Copy",
+            "url": "http://localhost:5000/api/events/6",
+            "method": "PATCH",
+            "sortNum": 330000,
+            "created": "2026-11-07T17:15:29.151Z",
+            "modified": "2026-11-07T17:15:29.151Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"invalid_field\": \"valor\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzEwMjQsImV4cCI6MTc5NDA3NDYyNH0.4Ajw72PB3-29JaNznUWYhELetpn9bBLivcVcBNnfnUk"
+            }
+        },
+        {
+            "_id": "0ac7f91a-2edc-4199-a528-3a8ee38e5f4e",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "DELETE - Events - Delete Existing",
+            "url": "http://localhost:5000/api/events/8",
+            "method": "DELETE",
+            "sortNum": 350000,
+            "created": "2026-11-07T17:17:58.787Z",
+            "modified": "2026-11-07T17:17:58.787Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzEwMjQsImV4cCI6MTc5NDA3NDYyNH0.4Ajw72PB3-29JaNznUWYhELetpn9bBLivcVcBNnfnUk"
+            }
+        },
+        {
+            "_id": "f1529ae8-807a-4683-b3ea-5f79cff0c774",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "DELETE - Events - Delete Existing-Error",
+            "url": "http://localhost:5000/api/events/9999",
+            "method": "DELETE",
+            "sortNum": 360000,
+            "created": "2026-11-07T17:19:14.851Z",
+            "modified": "2026-11-07T17:19:14.851Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzEwMjQsImV4cCI6MTc5NDA3NDYyNH0.4Ajw72PB3-29JaNznUWYhELetpn9bBLivcVcBNnfnUk"
+            }
+        },
+        {
+            "_id": "1172057e-929d-4785-952b-e244e89fb260",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "GET - Event Artists - Success",
+            "url": "http://localhost:5000/api/events/2/artists",
+            "method": "GET",
+            "sortNum": 370000,
+            "created": "2026-11-07T17:20:56.938Z",
+            "modified": "2026-11-07T17:20:56.938Z",
+            "headers": []
+        },
+        {
+            "_id": "2f57e49b-38f9-495f-a136-c3a943a1b96d",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "GET - Event Artists - Error",
+            "url": "http://localhost:5000/api/events/9999/artists",
+            "method": "GET",
+            "sortNum": 380000,
+            "created": "2026-11-07T17:21:39.761Z",
+            "modified": "2026-11-07T17:21:39.761Z",
+            "headers": []
+        },
+        {
+            "_id": "70655162-b36c-42bb-99cd-9a39771842d4",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "POST - Event Artists - Assign Artist",
+            "url": "http://localhost:5000/api/events/2/artists",
+            "method": "POST",
+            "sortNum": 400000,
+            "created": "2026-11-07T17:23:53.608Z",
+            "modified": "2026-11-07T17:23:53.609Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"artist_id\": 3,",
+                    "  \"presentation_time\": \"21:00:00\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzEwMjQsImV4cCI6MTc5NDA3NDYyNH0.4Ajw72PB3-29JaNznUWYhELetpn9bBLivcVcBNnfnUk"
+            }
+        },
+        {
+            "_id": "8a84eefb-21c5-4ae3-822e-c18a439bee32",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "POST - Event Artists - Error",
+            "url": "http://localhost:5000/api/events/2/artists",
+            "method": "POST",
+            "sortNum": 410000,
+            "created": "2026-11-07T17:27:22.907Z",
+            "modified": "2026-11-07T17:27:22.907Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"artist_id\": 3,",
+                    "  \"presentation_time\": \"21:00:00\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzEwMjQsImV4cCI6MTc5NDA3NDYyNH0.4Ajw72PB3-29JaNznUWYhELetpn9bBLivcVcBNnfnUk"
+            }
+        },
+        {
+            "_id": "14aa4eaf-6d4e-438b-b9db-c07a7d88c519",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "GET - Event Cast - Success",
+            "url": "http://localhost:5000/api/events/3/cast",
+            "method": "GET",
+            "sortNum": 420000,
+            "created": "2026-11-07T17:39:44.733Z",
+            "modified": "2026-11-07T17:39:44.733Z",
+            "headers": []
+        },
+        {
+            "_id": "767fbcdb-0750-4840-a135-064693637f0b",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "GET - Event Cast - Error",
+            "url": "http://localhost:5000/api/events/9999/cast",
+            "method": "GET",
+            "sortNum": 430000,
+            "created": "2026-11-07T17:40:05.747Z",
+            "modified": "2026-11-07T17:40:05.747Z",
+            "headers": []
+        },
+        {
+            "_id": "28ad1b1a-6f4c-4e28-bed3-a63a41bbf78b",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "POST - Cast Members - Create New",
+            "url": "http://localhost:5000/api/cast-members",
+            "method": "POST",
+            "sortNum": 440000,
+            "created": "2026-11-07T17:43:07.803Z",
+            "modified": "2026-11-07T17:43:07.803Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"name\": \"Actor de prueba 2\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzEwMjQsImV4cCI6MTc5NDA3NDYyNH0.4Ajw72PB3-29JaNznUWYhELetpn9bBLivcVcBNnfnUk"
+            }
+        },
+        {
+            "_id": "83a02a5e-0dc6-4a48-a4b9-3cb250d6f31d",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "POST - Cast Members - Create New Error",
+            "url": "http://localhost:5000/api/cast-members",
+            "method": "POST",
+            "sortNum": 445000,
+            "created": "2026-11-07T17:48:10.337Z",
+            "modified": "2026-11-07T17:48:10.337Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"name\": \"\"",
+                    "}",
+                    ""
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzEwMjQsImV4cCI6MTc5NDA3NDYyNH0.4Ajw72PB3-29JaNznUWYhELetpn9bBLivcVcBNnfnUk"
+            }
+        },
+        {
+            "_id": "4b24d871-0752-4731-946f-f040d28354c1",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "POST - Event Cast - Assign Cast Member",
+            "url": "http://localhost:5000/api/events/3/cast",
+            "method": "POST",
+            "sortNum": 450000,
+            "created": "2026-11-07T17:44:15.816Z",
+            "modified": "2026-11-07T17:44:15.816Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "",
+                    "{",
+                    "  \"cast_member_id\": 3",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzEwMjQsImV4cCI6MTc5NDA3NDYyNH0.4Ajw72PB3-29JaNznUWYhELetpn9bBLivcVcBNnfnUk"
+            }
+        },
+        {
+            "_id": "116c253e-6da1-4771-ae3d-aa4f81fbc93d",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "POST - Event Cast - Assign Cast Member Error",
+            "url": "http://localhost:5000/api/events/3/cast",
+            "method": "POST",
+            "sortNum": 460000,
+            "created": "2026-11-07T17:47:01.042Z",
+            "modified": "2026-11-07T17:47:01.042Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"cast_member_id\": 3",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzEwMjQsImV4cCI6MTc5NDA3NDYyNH0.4Ajw72PB3-29JaNznUWYhELetpn9bBLivcVcBNnfnUk"
+            }
+        },
+        {
+            "_id": "eddb768c-773b-48a5-91ea-a82dc69af29d",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "GET - Event Intermissions - Success",
+            "url": "http://localhost:5000/api/events/3/intermissions",
+            "method": "GET",
+            "sortNum": 470000,
+            "created": "2026-11-07T17:49:48.460Z",
+            "modified": "2026-11-07T17:49:48.460Z",
+            "headers": []
+        },
+        {
+            "_id": "63ee52f2-766a-4e9c-89f3-1e0005d2840b",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "GET - Event Intermissions -Error",
+            "url": "http://localhost:5000/api/events/9999/intermissions",
+            "method": "GET",
+            "sortNum": 480000,
+            "created": "2026-11-07T17:50:07.492Z",
+            "modified": "2026-11-07T17:50:07.492Z",
+            "headers": []
+        },
+        {
+            "_id": "f0806c28-613e-4058-9664-b7013e27a46a",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "PUT - Event Intermissions - Update ",
+            "url": "http://localhost:5000/api/events/3/intermissions",
+            "method": "PUT",
+            "sortNum": 490000,
+            "created": "2026-11-07T17:51:36.576Z",
+            "modified": "2026-11-07T17:51:36.576Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"intermissions\": \"Primer intermedio: 25 minutos. Segundo intermedio: 15 minutos.\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzEwMjQsImV4cCI6MTc5NDA3NDYyNH0.4Ajw72PB3-29JaNznUWYhELetpn9bBLivcVcBNnfnUk"
+            }
+        },
+        {
+            "_id": "b18a157a-a682-4a50-9390-81eb1306c3c9",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "PUT - Event Intermissions - Update  Error",
+            "url": "http://localhost:5000/api/events/3/intermissions",
+            "method": "PUT",
+            "sortNum": 500000,
+            "created": "2026-11-07T17:52:26.866Z",
+            "modified": "2026-11-07T17:52:26.866Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"intermissions\": \"\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzEwMjQsImV4cCI6MTc5NDA3NDYyNH0.4Ajw72PB3-29JaNznUWYhELetpn9bBLivcVcBNnfnUk"
+            }
+        },
+        {
+            "_id": "2d938c4a-7331-4dd0-a0ea-15d3f2263c62",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "GET - Sport Details - Success",
+            "url": "http://localhost:5000/api/events/4/sport-details",
+            "method": "GET",
+            "sortNum": 510000,
+            "created": "2026-11-07T17:55:09.588Z",
+            "modified": "2026-11-07T17:55:09.588Z",
+            "headers": []
+        },
+        {
+            "_id": "d520e747-8252-46bd-9f72-6b697aa783dc",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "GET - Sport Details - Error",
+            "url": "http://localhost:5000/api/events/9999/sport-details",
+            "method": "GET",
+            "sortNum": 520000,
+            "created": "2026-11-07T17:55:56.187Z",
+            "modified": "2026-11-07T17:55:56.187Z",
+            "headers": []
+        },
+        {
+            "_id": "37dec4f5-2213-43d4-bc4c-ac804bafbe20",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "POST - Events - Create Sports Event",
+            "url": "http://localhost:5000/api/events",
+            "method": "POST",
+            "sortNum": 530000,
+            "created": "2026-11-07T17:57:15.800Z",
+            "modified": "2026-11-07T17:57:15.800Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"name\": \"Partido de prueba TicketForge\",",
+                    "  \"location\": \"Bogota\",",
+                    "  \"date_time\": \"2027-06-15\",",
+                    "  \"category\": \"sports\",",
+                    "  \"min_price\": 40000,",
+                    "  \"max_price\": 100000,",
+                    "  \"description\": \"Evento deportivo creado para probar los detalles deportivos.\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzEwMjQsImV4cCI6MTc5NDA3NDYyNH0.4Ajw72PB3-29JaNznUWYhELetpn9bBLivcVcBNnfnUk"
+            }
+        },
+        {
+            "_id": "58fc6533-bfeb-4e7f-8507-bd564355d82c",
+            "colId": "77742b60-da98-4c01-b802-64ebb47028e6",
+            "containerId": "001fec7d-e6ab-408e-8c83-05dc17bfd3f4",
+            "name": "POST - Events - Create Sports Event Error",
+            "url": "http://localhost:5000/api/events",
+            "method": "POST",
+            "sortNum": 540000,
+            "created": "2026-11-07T18:06:04.041Z",
+            "modified": "2026-11-07T18:06:04.041Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"name\": \"\",",
+                    "  \"location\": \"Bogota\",",
+                    "  \"date_time\": \"2027-06-15\",",
+                    "  \"category\": \"\",",
+                    "  \"min_price\": 40000,",
+                    "  \"max_price\": 100000,",
+                    "  \"description\": \"Evento deportivo creado para probar los detalles deportivos.\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3OTQwNzQ3OTcsImV4cCI6MTc5NDA3ODM5N30.dFmm1EKd_Neq-Ryt3k16MDZLaTUD1dHcjPyh0GFBKSU"
+            }
+        }
+    ],
+    "ref": "nh1KKF-5LbYdfa2LD4LFZs8npBz4-mbK_Z_CKtv1RnTageFqDUKPGBCmVOl_W0X0Us807iiOilAO_wXjNUMgmw"
+}
