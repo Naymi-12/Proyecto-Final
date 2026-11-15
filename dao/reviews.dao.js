@@ -4,11 +4,29 @@ const pool = require('../services/mysql.service');
 
 async function getAllReviews() {
     const [rows] = await pool.query(
-        'SELECT * FROM reviews'
+        `SELECT
+            r.review_id,
+            r.user_id,
+            u.name AS user_name,
+            r.event_id,
+            e.name AS event_name,
+            r.rating,
+            r.comment,
+            r.seat_quality
+         FROM reviews r
+         INNER JOIN users u
+            ON r.user_id = u.user_id
+         INNER JOIN events e
+            ON r.event_id = e.event_id
+         ORDER BY r.review_id DESC`
     );
+
+    for (const review of rows) {
+        review.tags = await getTagsByReviewId(review.review_id);
+    }
+
     return rows;
 }
-
 
 async function getReviewById(id) {
     const [rows] = await pool.query(
@@ -21,9 +39,20 @@ async function getReviewById(id) {
 
 async function getReviewsByEventId(eventId) {
     const [rows] = await pool.query(
-        'SELECT * FROM reviews WHERE event_id = ?',
+        `SELECT
+            r.*,
+            t.seat_number,
+            u.name AS user_name
+         FROM reviews r
+         LEFT JOIN tickets t
+            ON r.user_id = t.user_id
+            AND r.event_id = t.event_id
+         LEFT JOIN users u
+            ON r.user_id = u.user_id
+         WHERE r.event_id = ?`,
         [eventId]
     );
+
     return rows;
 }
 

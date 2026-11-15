@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo | TicketForge</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+   <header class="home-header">
+    <div class="logo">
+        TicketForge
+    </div>
+
+    <nav class="main-nav">
+        <a href="./home.html" id="homeLink">Inicio</a>
+        <a href="./catalog.html" class="active">Catálogo</a>
+        <a href="./profile.html" id="profileLink" class="hidden">
+    Mi perfil
+</a>
+       
+<a href="./admin.html" id="adminPanelLink" class="hidden">
+    Volver al administrador
+</a>
+
+<button type="button" id="adminLogoutButton" class="hidden">
+    Cerrar sesión
+</button>
+        <a href="./index.html" id="loginLink">
+            Iniciar sesión
+        </a>
+
+        <div class="user-menu-container hidden" id="userMenuContainer">
+            <button
+                id="userButton"
+                class="header-icon"
+                type="button"
+                title="Mi cuenta"
+                aria-label="Mi cuenta">
+                👤
+            </button>
+
+            <div id="userDropdown" class="user-dropdown hidden">
+                <p id="userGreeting"></p>
+
+                <a href="./my-tickets.html" class="dropdown-link">
+                    Mis entradas
+                </a>
+
+                <button id="logoutButton" type="button">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <main class="catalog-container">
+
+        <section class="catalog-heading">
+            <h1>Explora nuestros eventos</h1>
+            <p>Encuentra experiencias increíbles y asegura tus entradas.</p>
+        </section>
+
+        <section class="catalog-filters">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Buscar eventos..."
+            >
+
+            <select id="categoryFilter">
+                <option value="all">Todas las categorías</option>
+                <option value="concert">Conciertos</option>
+                <option value="sports">Deportes</option>
+                <option value="theater">Teatro</option>
+            </select>
+
+        </section>
+
+        <section class="catalog-results">
+            <div class="catalog-results-heading">
+                <h2>Todos los eventos</h2>
+                <span id="eventCount">Cargando...</span>
+            </div>
+
+            <div id="catalogEvents" class="events-grid">
+                <p>Cargando eventos...</p>
+            </div>
+
+            <div id="pagination" class="pagination"></div>
+        </section>
+
+    </main>
+
+    <script src="./js/catalog.js"></script>
+     <script src="./js/home.js"></script>
+</body>
+</html>

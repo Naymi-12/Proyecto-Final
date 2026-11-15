@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicketForge - Mis entradas</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+    <header class="home-header">
+        <div class="logo">TicketForge</div>
+
+        <nav class="main-nav">
+            <a href="./home.html">Inicio</a>
+            <a href="./catalog.html">Catálogo</a>
+            <a href="./profile.html" id="profileLink" class="hidden">
+    Mi perfil
+</a>
+
+            <div class="user-menu-container" id="userMenuContainer">
+                <button
+                    id="userButton"
+                    class="header-icon"
+                    type="button"
+                    title="Mi cuenta"
+                    aria-label="Mi cuenta">
+                    👤
+                </button>
+
+                <div id="userDropdown" class="user-dropdown hidden">
+                    <p id="userGreeting"></p>
+
+                    <a href="./my-tickets.html" class="dropdown-link">
+                        Mis entradas
+                    </a>
+
+                    <button id="logoutButton" type="button">
+                        Cerrar sesión
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="my-tickets-main">
+        <section class="my-tickets-section">
+            <h1>Mis entradas</h1>
+            <p class="tickets-description">
+                Aquí puedes consultar las entradas que has comprado.
+            </p>
+
+            <div class="ticket-tabs">
+       <button id="upcomingTab" class="ticket-tab active">
+           Próximas
+        </button>
+
+       <button id="historyTab" class="ticket-tab">
+        Historial
+       </button>
+     </div>
+
+<div id="ticketsContainer" class="tickets-container">
+    <p>Cargando tus entradas...</p>
+</div>
+        </section>
+    </main>
+
+    <script src="./js/home.js"></script>
+    <script src="./js/my-tickets.js"></script>
+
+</body>
+</html>

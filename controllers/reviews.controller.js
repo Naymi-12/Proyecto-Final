@@ -137,6 +137,19 @@ async function createReview(req, res) {
             });
         }
 
+      
+       const existingReviews = await reviewsService.getReviewsByEventId(event_id);
+
+       const alreadyReviewed = existingReviews.some(review =>
+    Number(review.user_id) === Number(userId)
+      );
+
+      if (alreadyReviewed) {
+      return res.status(409).json({
+        message: 'You have already reviewed this event'
+      });
+     }
+
         const userTickets = await ticketsService.getTicketsByUserId(userId);
 
         const attended = userTickets.some(ticket =>

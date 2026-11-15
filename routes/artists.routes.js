@@ -48,6 +48,12 @@ const { requireAdmin } = require('../middlewares/authorize.middleware');
 router.get('/', artistsController.getAllArtists);
 
 
+router.get('/event/:id',artistsController.getArtistsByEventId);
+
+
+router.post('/event/:id',verifyToken,requireAdmin,artistsController.addArtistToConcert
+);
+
 /**
  * @swagger
  * /api/artists/{id}:

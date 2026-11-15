@@ -167,6 +167,8 @@ async function addArtistToConcert(req, res) {
         });
 
     } catch (error) {
+
+        console.error('Error adding artist to concert:', error);
     if (error.code === 'ER_DUP_ENTRY') {
         return res.status(409).json({
             message: 'This artist is already assigned to this concert'

@@ -1,4 +1,3 @@
-
 const ticketsDAO = require('../dao/tickets.dao');
 
 async function getAllTickets() {
@@ -20,14 +19,21 @@ async function createTicket(ticket) {
 async function deleteTicket(id) {
     return await ticketsDAO.deleteTicket(id);
 }
+
 async function getDailySales() {
     return await ticketsDAO.getDailySales();
 }
+
+async function completeFinishedEventTickets() {
+    return await ticketsDAO.completeFinishedEventTickets();
+}
+
 module.exports = {
     getAllTickets,
     getTicketById,
     getTicketsByUserId,
     createTicket,
     deleteTicket,
-    getDailySales
+    getDailySales,
+    completeFinishedEventTickets
 };

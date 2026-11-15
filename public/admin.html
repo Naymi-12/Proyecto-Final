@@ -1,0 +1,868 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración | TicketForge</title>
+
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+    <div class="admin-container">
+
+        <header class="admin-header">
+            <div class="brand">
+                <h1>TicketForge</h1>
+                <span class="admin-label">Administrador</span>
+            </div>
+
+            <div class="admin-profile">
+                <span>Administrador</span>
+                <div class="profile-icon">A</div>
+            </div>
+        </header>
+
+        <div class="admin-layout">
+
+           
+           
+<aside class="sidebar">
+    <nav>
+        <a href="#inicio" class="nav-link active">
+            Inicio
+        </a>
+
+        <a href="#eventos" class="nav-link">
+            Gestión de Eventos
+        </a>
+
+        <a href="#usuarios" class="nav-link">
+            Gestión de Usuarios
+        </a>
+
+        <a href="#artistas" class="nav-link">
+            Gestión de Artistas y Elenco
+        </a>
+        <a href="#intermedios" class="nav-link">
+    Gestión de Intermedios
+</a>
+<a href="#marcadores" class="nav-link">
+    Gestión de Marcadores Deportivos
+</a>
+        <a href="#resenas" class="nav-link">
+    Gestión de Reseñas
+</a>
+
+<a href="./catalog.html" class="nav-link">
+    <span>Ver catálogo</span>
+</a>
+
+<button type="button" id="logoutAdminBtn" class="logout-btn">
+    Cerrar sesión
+</button>
+    </nav>
+</aside>
+
+
+           
+            <main class="main-content" id="inicio">
+
+                <section class="welcome-section">
+                    <h2>Inicio Administración</h2>
+                    <p>
+                        Resumen general y estadísticas de la
+                        plataforma TicketForge.
+                    </p>
+                </section>
+
+              
+                <section class="statistics-grid">
+
+                    <article class="stat-card">
+                        <span>Ventas Hoy</span>
+                        <h3 id="dailySales">$0</h3>
+                        <small>Ventas del día</small>
+                    </article>
+
+                    <article class="stat-card">
+                        <span>Boletas Vendidas Hoy</span>
+                        <h3 id="dailyTickets">0</h3>
+                        <small>Entradas registradas</small>
+                    </article>
+
+                    <article class="stat-card">
+                        <span>Eventos Publicados</span>
+                        <h3 id="totalEvents">0</h3>
+                        <small>Eventos registrados</small>
+                    </article>
+
+                    <article class="stat-card">
+                        <span>Usuarios Totales</span>
+                        <h3 id="totalUsers">0</h3>
+                        <small>Usuarios registrados</small>
+                    </article>
+
+                </section>
+
+            
+                <section class="quick-actions">
+                    <button id="createEventBtn">
+                        Crear Nuevo Evento
+                    </button>
+                </section>
+
+
+
+<section class="event-form-section" id="eventFormSection" hidden>
+
+    <div class="form-header">
+        <h3>Crear Nuevo Evento</h3>
+        <button type="button" id="closeEventForm">
+            Cerrar
+        </button>
+    </div>
+
+    <form id="createEventForm">
+
+        <div class="form-group">
+            <label for="eventName">Nombre del evento</label>
+            <input type="text" id="eventName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="eventLocation">Ubicación</label>
+            <input type="text" id="eventLocation" required>
+        </div>
+
+
+<div class="form-group">
+    <label for="eventImage">Imagen del evento</label>
+    <input
+        type="file"
+        id="eventImage"
+        accept="image/*"
+        required
+    >
+    <div class="image-preview-container">
+        <img
+            id="eventImagePreview"
+            alt="Vista previa de la imagen"
+            hidden
+        >
+    </div>
+</div>
+
+
+        <div class="form-group">
+            <label for="eventDate">Fecha y hora</label>
+            <input type="datetime-local" id="eventDate" required>
+        </div>
+
+        <div class="form-group">
+            <label for="eventCategory">Categoría</label>
+            <select id="eventCategory" required>
+                <option value="">Seleccionar categoría</option>
+                <option value="concert">Concierto</option>
+                <option value="sports">Deporte</option>
+                <option value="theater">Teatro</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="minPrice">Precio mínimo</label>
+                <input type="number" id="minPrice" min="0" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="maxPrice">Precio máximo</label>
+                <input type="number" id="maxPrice" min="0" step="0.01" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="eventDescription">Descripción</label>
+            <textarea id="eventDescription" rows="4" required></textarea>
+        </div>
+
+<div id="eventFormMessage" role="status"></div>
+
+<div class="form-buttons">
+    <button type="button" id="cancelEventForm">
+        Cancelar
+    </button>
+
+    <button type="submit" id="saveEventBtn">
+        Guardar Evento
+    </button>
+</div>
+
+    </form>
+
+</section>
+
+
+             
+               
+<section class="events-section" id="eventos">
+
+    <div class="section-heading">
+        <h3>Gestión de Eventos</h3>
+        <p>Consulta y administra los eventos registrados.</p>
+    </div>
+
+    <div class="event-filters">
+        <input
+            type="text"
+            id="searchEvent"
+            placeholder="Buscar evento por nombre..."
+        >
+
+        <select id="filterCategory">
+            <option value="">Todas las categorías</option>
+            <option value="concert">Conciertos</option>
+            <option value="sports">Deportes</option>
+            <option value="theater">Teatro</option>
+        </select>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Evento</th>
+                    <th>Categoría</th>
+                    <th>Fecha y hora</th>
+                    <th>Ubicación</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody id="eventsTableBody">
+                <tr>
+                    <td colspan="5">Cargando eventos...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</section>
+<section class="tickets-section" id="ventas"></section>
+
+    <div class="section-heading">
+        <h3>Gestión de Entradas</h3>
+        <p>Consulta las entradas compradas por los usuarios.</p>
+    </div>
+
+    <div class="ticket-filters">
+
+        <input
+            type="text"
+            id="searchTicket"
+            placeholder="Buscar por usuario o evento..."
+        >
+
+        <select id="filterTicketStatus">
+            <option value="">Todos los estados</option>
+            <option value="upcoming">Próximas</option>
+            <option value="completed">Completadas</option>
+        </select>
+
+    </div>
+
+    <div class="table-container">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Comprador</th>
+                    <th>Evento</th>
+                    <th>Tipo</th>
+                    <th>Asiento</th>
+                    <th>Precio</th>
+                    <th>Fecha de compra</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody id="ticketsTableBody">
+                <tr>
+                    <td colspan="9">Cargando entradas...</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</section>
+
+
+<section class="users-section" id="usuarios">
+
+    <div class="section-heading">
+        <h3>Gestión de Usuarios</h3>
+        <p>Consulta y administra los usuarios registrados en TicketForge.</p>
+    </div>
+
+   
+    <div class="user-filters">
+
+        <input
+            type="text"
+            id="searchUser"
+            placeholder="Buscar usuario por nombre o correo..."
+        >
+
+        <select id="filterUserRole">
+            <option value="">Todos los roles</option>
+            <option value="user">Usuarios</option>
+            <option value="admin">Administradores</option>
+        </select>
+
+    </div>
+
+    <div class="table-container">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Correo electrónico</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody id="usersTableBody">
+                <tr>
+                    <td colspan="5">Cargando usuarios...</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    
+    <section class="user-form-section" id="userFormSection" hidden>
+
+        <div class="form-header">
+            <h3>Editar Usuario</h3>
+
+            <button type="button" id="closeUserForm">
+                Cerrar
+            </button>
+        </div>
+
+        <form id="editUserForm">
+
+            <div class="form-group">
+                <label for="userName">Nombre</label>
+                <input
+                    type="text"
+                    id="userName"
+                    maxlength="100"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="userEmail">Correo electrónico</label>
+                <input
+                    type="email"
+                    id="userEmail"
+                    maxlength="150"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="userRole">Rol</label>
+                <select id="userRole" required>
+                    <option value="user">Usuario</option>
+                    <option value="admin">Administrador</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="userPassword">Nueva contraseña</label>
+<input
+    type="password"
+    id="userPassword"
+    placeholder="Obligatoria para PUT; opcional para PATCH"
+>
+<small>
+    Para PATCH puedes dejarla vacía. Para PUT debes escribir una nueva.
+</small>
+            </div>
+
+            <div id="userFormMessage" role="status"></div>
+
+           <div class="form-buttons">
+    <button type="button" id="cancelUserForm">
+        Cancelar
+    </button>
+
+    <button type="submit" id="saveUserBtn">
+        Actualizar parcialmente 
+    </button>
+
+    <button type="button" id="replaceUserBtn">
+        Actualizar completamente 
+    </button>
+</div>
+
+        </form>
+
+    </section>
+
+</section>
+
+
+
+<section class="artists-section" id="artistas">
+
+    <div class="section-heading">
+        <h3>Gestión de Artistas y Elenco</h3>
+        <p>Administra los artistas y miembros del elenco registrados.</p>
+    </div>
+
+    <!-- ARTISTAS -->
+    <div class="catalog-section">
+
+        <div class="catalog-header">
+            <div>
+                <h3>Artistas</h3>
+                <p>Administra los artistas musicales.</p>
+            </div>
+
+            <button type="button" id="createArtistBtn">
+                Registrar Artista
+            </button>
+        </div>
+
+        <div class="catalog-filters">
+            <input
+                type="text"
+                id="searchArtist"
+                placeholder="Buscar artista por nombre..."
+            >
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre del artista</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody id="artistsTableBody">
+                    <tr>
+                        <td colspan="3">Cargando artistas...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="catalog-form" id="artistFormSection" hidden>
+            <h4>Registrar artista</h4>
+
+            <form id="createArtistForm">
+                <div class="form-group">
+                    <label for="artistName">Nombre del artista</label>
+                    <input
+                        type="text"
+                        id="artistName"
+                        maxlength="100"
+                        required
+                    >
+                </div>
+
+                <div id="artistFormMessage" role="status"></div>
+
+                <div class="form-buttons">
+                    <button type="button" id="cancelArtistForm">
+                        Cancelar
+                    </button>
+
+                    <button type="submit" id="saveArtistBtn">
+                        Guardar Artista
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+        
+
+<div class="catalog-section">
+
+    <div class="catalog-header">
+        <div>
+            <h3>Artistas por Concierto</h3>
+            <p>Asigna artistas musicales a los conciertos registrados.</p>
+        </div>
+    </div>
+
+    <form id="associateArtistForm">
+
+        <div class="form-group">
+            <label for="concertSelect">Seleccionar concierto</label>
+            <select id="concertSelect" required>
+                <option value="">Seleccionar concierto</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="artistSelect">Seleccionar artista</label>
+            <select id="artistSelect" required>
+                <option value="">Seleccionar artista</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="presentationTime">Hora de presentación</label>
+            <input
+                type="time"
+                id="presentationTime"
+                required
+            >
+        </div>
+
+        <div id="associateArtistMessage" role="status"></div>
+
+        <div class="form-buttons">
+            <button type="submit" id="associateArtistBtn">
+                Asociar Artista
+            </button>
+        </div>
+
+    </form>
+
+    <div class="section-heading">
+        <h4>Artistas asignados</h4>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Artista</th>
+                    <th>Hora de presentación</th>
+                </tr>
+            </thead>
+
+            <tbody id="concertArtistsTableBody">
+                <tr>
+                    <td colspan="3">
+                        Selecciona un concierto para consultar sus artistas.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+    
+    
+   
+    <div class="catalog-section">
+
+        <div class="catalog-header">
+            <div>
+                <h3>Miembros del Elenco</h3>
+                <p>Administra los actores registrados.</p>
+            </div>
+
+            <button type="button" id="createCastMemberBtn">
+                Registrar Actor
+            </button>
+        </div>
+
+        <div class="catalog-filters">
+            <input
+                type="text"
+                id="searchCastMember"
+                placeholder="Buscar actor por nombre..."
+            >
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre del actor</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody id="castMembersTableBody">
+                    <tr>
+                        <td colspan="3">Cargando elenco...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="catalog-form" id="castMemberFormSection" hidden>
+            <h4>Registrar miembro del elenco</h4>
+
+            <form id="createCastMemberForm">
+                <div class="form-group">
+                    <label for="castMemberName">Nombre del actor</label>
+                    <input
+                        type="text"
+                        id="castMemberName"
+                        maxlength="100"
+                        required
+                    >
+                </div>
+
+                <div id="castMemberFormMessage" role="status"></div>
+
+                <div class="form-buttons">
+                    <button type="button" id="cancelCastMemberForm">
+                        Cancelar
+                    </button>
+
+                    <button type="submit" id="saveCastMemberBtn">
+                        Guardar Actor
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+
+<div class="catalog-section">
+
+    <div class="catalog-header">
+        <div>
+            <h3>Integrantes por Obra de Teatro</h3>
+            <p>Asigna integrantes del elenco a las obras de teatro registradas.</p>
+        </div>
+    </div>
+
+    <form id="associateCastMemberForm">
+
+        <div class="form-group">
+            <label for="theaterSelect">Seleccionar obra de teatro</label>
+            <select id="theaterSelect" required>
+                <option value="">Seleccionar obra</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="castMemberSelect">Seleccionar integrante</label>
+            <select id="castMemberSelect" required>
+                <option value="">Seleccionar integrante</option>
+            </select>
+        </div>
+
+        <div id="associateCastMemberMessage" role="status"></div>
+
+        <div class="form-buttons">
+            <button type="submit" id="associateCastMemberBtn">
+                Asociar Integrante
+            </button>
+        </div>
+
+    </form>
+
+    <div class="section-heading">
+        <h4>Integrantes asignados</h4>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Integrante del elenco</th>
+                </tr>
+            </thead>
+
+            <tbody id="theaterCastTableBody">
+                <tr>
+                    <td colspan="2">
+                        Selecciona una obra para consultar sus integrantes.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</section>
+
+
+<section class="catalog-section" id="intermedios">
+
+    <div class="section-heading">
+        <h3>Gestión de Intermedios de Teatro</h3>
+        <p>Consulta y actualiza la información de los intermedios de cada obra.</p>
+    </div>
+
+    <form id="intermissionsForm">
+
+        <div class="form-group">
+            <label for="intermissionsEventSelect">
+                Seleccionar obra de teatro
+            </label>
+
+            <select id="intermissionsEventSelect" required>
+                <option value="">Seleccionar obra</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="intermissionsText">
+                Información de los intermedios
+            </label>
+
+            <textarea
+                id="intermissionsText"
+                rows="5"
+                placeholder="Ejemplo: Primer intermedio: 20 minutos. Segundo intermedio: 15 minutos."
+                required
+            ></textarea>
+        </div>
+
+        <div id="intermissionsMessage" role="status"></div>
+
+        <div class="form-buttons">
+            <button type="submit" id="saveIntermissionsBtn">
+                Guardar Intermedios
+            </button>
+        </div>
+
+    </form>
+
+</section>
+
+
+
+<section class="catalog-section" id="marcadores">
+
+    <div class="section-heading">
+        <h3>Gestión de Marcadores Deportivos</h3>
+        <p>Consulta los equipos y administra los resultados de los eventos deportivos.</p>
+    </div>
+
+    <form id="sportDetailsForm">
+
+        <div class="form-group">
+            <label for="sportEventSelect">Seleccionar evento deportivo</label>
+            <select id="sportEventSelect" required>
+                <option value="">Seleccionar evento</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="homeTeam">Equipo local</label>
+            <input type="text" id="homeTeam" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="awayTeam">Equipo visitante</label>
+            <input type="text" id="awayTeam" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="scoreboard">Marcador</label>
+            <input
+                type="text"
+                id="scoreboard"
+                placeholder="Ejemplo: 2-1"
+                required
+            >
+        </div>
+
+        <div id="sportDetailsMessage" role="status"></div>
+
+        <div class="form-buttons">
+            <button type="submit" id="saveScoreboardBtn">
+                Guardar marcador
+            </button>
+        </div>
+
+    </form>
+
+</section>
+
+
+<section class="reviews-section" id="resenas">
+
+    <div class="section-heading">
+        <h3>Gestión de Reseñas</h3>
+        <p>Consulta y administra las opiniones de los usuarios sobre los eventos.</p>
+    </div>
+
+    <div class="review-filters">
+
+        <input
+            type="text"
+            id="searchReview"
+            placeholder="Buscar por usuario, evento o comentario..."
+        >
+
+        <select id="filterReviewRating">
+            <option value="">Todas las calificaciones</option>
+            <option value="5">5 estrellas</option>
+            <option value="4">4 estrellas</option>
+            <option value="3">3 estrellas</option>
+            <option value="2">2 estrellas</option>
+            <option value="1">1 estrella</option>
+        </select>
+
+    </div>
+
+    <div class="table-container">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Usuario</th>
+                    <th>Evento</th>
+                    <th>Calificación</th>
+                    <th>Comentario</th>
+                    <th>Calidad del asiento</th>
+                    <th>Etiquetas</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody id="reviewsTableBody">
+                <tr>
+                    <td colspan="8">Cargando reseñas...</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

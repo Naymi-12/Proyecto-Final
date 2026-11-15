@@ -19,10 +19,20 @@ async function createCastMember(castMember) {
 async function deleteCastMember(id) {
     return await castMembersDAO.deleteCastMember(id);
 }
+async function getCastMembersByEventId(eventId) {
+    return await castMembersDAO.getCastMembersByEventId(eventId);
+}
+
+
+async function addCastMemberToTheater(eventId, castMemberId) {
+    return await castMembersDAO.addCastMemberToTheater(eventId, castMemberId);
+}
 
 module.exports = {
     getAllCastMembers,
     getCastMemberById,
     createCastMember,
-    deleteCastMember
+    deleteCastMember,
+    getCastMembersByEventId,
+    addCastMemberToTheater  
 };

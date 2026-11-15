@@ -1,3 +1,4 @@
+
 const express = require('express');
 const router = express.Router();
 
@@ -17,6 +18,29 @@ const { requireAdmin } = require('../middlewares/authorize.middleware');
  *     responses:
  *       200:
  *         description: Cast members retrieved successfully.
+ *       500:
+ *         description: Internal server error.
+ */
+router.get('/', castMembersController.getAllCastMembers);
+
+
+/**
+ * @swagger
+ * /api/cast-members/event/{id}:
+ *   get:
+ *     summary: Retrieve cast members assigned to a theater event
+ *     description: Returns all cast members associated with a specific theater event.
+ *     tags: [Cast Members]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: Theater event ID.
+ *     responses:
+ *       200:
+ *         description: Cast members retrieved successfully.
  *         content:
  *           application/json:
  *             schema:
@@ -29,23 +53,11 @@ const { requireAdmin } = require('../middlewares/authorize.middleware');
  *                     example: 1
  *                   name:
  *                     type: string
- *                     example: Test Actor
+ *                     example: John Example
  *       500:
  *         description: Internal server error.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: Error retrieving cast members
- *                 error:
- *                   type: string
- *                   example: Database connection error
  */
-
-router.get('/', castMembersController.getAllCastMembers);
+router.get('/event/:id', castMembersController.getCastMembersByEventId);
 
 
 /**
@@ -65,42 +77,11 @@ router.get('/', castMembersController.getAllCastMembers);
  *     responses:
  *       200:
  *         description: Cast member retrieved successfully.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 cast_member_id:
- *                   type: integer
- *                   example: 1
- *                 name:
- *                   type: string
- *                   example: Test Actor
  *       404:
  *         description: Cast member not found.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: Cast member not found
  *       500:
  *         description: Internal server error.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: Error retrieving cast member
- *                 error:
- *                   type: string
- *                   example: Database connection error
  */
-
 router.get('/:id', castMembersController.getCastMemberById);
 
 
@@ -128,47 +109,68 @@ router.get('/:id', castMembersController.getCastMemberById);
  *     responses:
  *       201:
  *         description: Cast member created successfully.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: Cast member created successfully
- *                 cast_member_id:
- *                   type: integer
- *                   example: 2
  *       400:
  *         description: Cast member name is missing or empty.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: Cast member name is required
  *       401:
  *         description: Authentication token is missing or invalid.
  *       403:
  *         description: Administrator permissions are required.
  *       500:
  *         description: Internal server error.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: Error creating cast member
- *                 error:
- *                   type: string
- *                   example: Database connection error
  */
-
 router.post('/', verifyToken, requireAdmin, castMembersController.createCastMember);
+
+
+/**
+ * @swagger
+ * /api/cast-members/event/{id}:
+ *   post:
+ *     summary: Assign a cast member to a theater event
+ *     description: Associates an existing cast member with a theater event. Only administrators can perform this operation.
+ *     tags: [Cast Members]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: Theater event ID.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - cast_member_id
+ *             properties:
+ *               cast_member_id:
+ *                 type: integer
+ *                 example: 1
+ *     responses:
+ *       201:
+ *         description: Cast member assigned successfully.
+ *       400:
+ *         description: Invalid cast member ID or event is not a theater.
+ *       401:
+ *         description: Authentication token is missing or invalid.
+ *       403:
+ *         description: Administrator permissions are required.
+ *       404:
+ *         description: Theater event or cast member not found.
+ *       409:
+ *         description: Cast member is already assigned to this theater.
+ *       500:
+ *         description: Internal server error.
+ */
+router.post(
+    '/event/:id',
+    verifyToken,
+    requireAdmin,
+    castMembersController.addCastMemberToTheater
+);
 
 
 /**
@@ -190,46 +192,16 @@ router.post('/', verifyToken, requireAdmin, castMembersController.createCastMemb
  *     responses:
  *       200:
  *         description: Cast member deleted successfully.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: Cast member deleted successfully
- *                 cast_member_id:
- *                   type: integer
- *                   example: 1
  *       401:
  *         description: Authentication token is missing or invalid.
  *       403:
  *         description: Administrator permissions are required.
  *       404:
  *         description: Cast member not found.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: Cast member not found
  *       500:
  *         description: Internal server error.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: Error deleting cast member
- *                 error:
- *                   type: string
- *                   example: Database connection error
  */
-
 router.delete('/:id', verifyToken, requireAdmin, castMembersController.deleteCastMember);
+
 
 module.exports = router;

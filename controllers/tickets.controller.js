@@ -60,15 +60,19 @@ async function getTicketsByUserId(req, res) {
 }
 
 
+
 async function createTicket(req, res) {
     try {
-      
         const userId = req.user.user_id;
-        const { event_id, paid_price } = req.body;
+        const { event_id, paid_price, ticket_type } = req.body;
 
-        if (event_id === undefined || paid_price === undefined) {
+        if (
+            event_id === undefined ||
+            paid_price === undefined ||
+            !ticket_type
+        ) {
             return res.status(400).json({
-                message: 'event_id and paid_price are required'
+                message: 'event_id, paid_price and ticket_type are required'
             });
         }
 
@@ -106,21 +110,31 @@ async function createTicket(req, res) {
                 message: 'Event not found'
             });
         }
+
         if (new Date(event.date_time) <= new Date()) {
             return res.status(400).json({
-            message: 'Cannot purchase tickets for past events'
+                message: 'Cannot purchase tickets for past events'
             });
-}
+        }
+
         const price = Number(paid_price);
 
-        if (
-            price < Number(event.min_price) ||
-            price > Number(event.max_price)
-        ) {
+        let expectedPrice;
+
+        if (ticket_type === 'Platea VIP') {
+            expectedPrice = Number(event.max_price);
+        } else if (ticket_type === 'General Preferencial') {
+            expectedPrice = Number(event.min_price);
+        } else {
             return res.status(400).json({
-                message: 'Paid price must be within the event price range',
-                min_price: Number(event.min_price),
-                max_price: Number(event.max_price)
+                message: 'Invalid ticket type'
+            });
+        }
+
+        if (price !== expectedPrice) {
+            return res.status(400).json({
+                message: 'Invalid price for the selected ticket type',
+                expected_price: expectedPrice
             });
         }
 
@@ -128,19 +142,23 @@ async function createTicket(req, res) {
             user_id: Number(userId),
             event_id: Number(event_id),
             paid_price: price,
-            status: new Date(event.date_time) > new Date()
-                ? 'upcoming'
-                : 'completed'
+            ticket_type,
+            status: 'upcoming'
         };
 
-        const ticketId = await ticketsService.createTicket(ticket);
+        const result = await ticketsService.createTicket(ticket);
 
         return res.status(201).json({
             message: 'Ticket purchased successfully',
-            ticket_id: ticketId
+            ticket_id: result.ticket_id,
+            ticket_type,
+            seat_number: result.seat_number,
+            paid_price: price
         });
 
     } catch (error) {
+        console.error('Error purchasing ticket:', error);
+
         return res.status(500).json({
             message: 'Error purchasing ticket',
             error: error.message

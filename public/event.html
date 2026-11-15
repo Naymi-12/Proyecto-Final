@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del evento | TicketForge</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+    <header class="home-header">
+        <div class="logo">TicketForge</div>
+
+        <nav class="main-nav">
+    <a href="./home.html">Inicio</a>
+    <a href="./catalog.html">Catálogo</a>
+    <a href="./profile.html" id="profileLink" class="hidden">
+    Mi perfil
+</a>
+
+    <div class="user-menu-container" id="userMenuContainer">
+        <button
+            id="userButton"
+            class="header-icon"
+            type="button"
+            title="Mi cuenta"
+            aria-label="Mi cuenta">
+            👤
+        </button>
+
+        <div id="userDropdown" class="user-dropdown hidden">
+            <p id="userGreeting"></p>
+
+            <a href="./my-tickets.html" class="dropdown-link">
+                Mis entradas
+            </a>
+
+            <button id="logoutButton" type="button">
+                Cerrar sesión
+            </button>
+        </div>
+    </div>
+</nav>
+    </header>
+
+    <main class="event-detail-container">
+
+    <a href="./catalog.html" class="back-link">
+        ← Volver al catálogo
+    </a>
+
+    <div id="eventDetails">
+        <p>Cargando información del evento...</p>
+    </div>
+
+   
+    <section id="reviewsSection" class="reviews-section">
+
+        <h2>Opiniones de los asistentes</h2>
+
+        <div id="reviewsContainer">
+            <p>Cargando reseñas...</p>
+        </div>
+
+    </section>
+
+</main>
+
+    <script src="./js/home.js"></script>
+    <script src="./js/event.js"></script>
+
+</body>
+</html>

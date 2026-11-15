@@ -51,11 +51,11 @@ async function getEventById(req, res) {
         });
     }
 }
+
 async function createEvent(req, res) {
     try {
         const event = req.body;
 
-        
         const requiredFields = [
             'name',
             'location',
@@ -80,7 +80,6 @@ async function createEvent(req, res) {
             });
         }
 
-      
         const allowedCategories = ['concert', 'sports', 'theater'];
 
         if (!allowedCategories.includes(event.category)) {
@@ -90,7 +89,6 @@ async function createEvent(req, res) {
             });
         }
 
-      
         if (
             !Number.isFinite(Number(event.min_price)) ||
             !Number.isFinite(Number(event.max_price)) ||
@@ -102,11 +100,22 @@ async function createEvent(req, res) {
             });
         }
 
+      
+        if (!req.file) {
+            return res.status(400).json({
+                message: 'Event image is required'
+            });
+        }
+
+    
+        event.image_url = `/images/${req.file.filename}`;
+
         const newEventId = await eventsService.createEvent(event);
 
         return res.status(201).json({
             message: 'Event created successfully',
-            event_id: newEventId
+            event_id: newEventId,
+            image_url: event.image_url
         });
 
     } catch (error) {
@@ -116,12 +125,12 @@ async function createEvent(req, res) {
         });
     }
 }
+
 async function updateEvent(req, res) {
     try {
         const id = req.params.id;
         const event = req.body;
 
-        // Check that all fields are provided
         const requiredFields = [
             'name',
             'location',
@@ -133,13 +142,36 @@ async function updateEvent(req, res) {
         ];
 
         const missingFields = requiredFields.filter(
-            field => event[field] === undefined || event[field] === null
+            field =>
+                event[field] === undefined ||
+                event[field] === null ||
+                !String(event[field]).trim()
         );
 
         if (missingFields.length > 0) {
             return res.status(400).json({
                 message: 'Missing required fields',
                 fields: missingFields
+            });
+        }
+
+        const allowedCategories = ['concert', 'sports', 'theater'];
+
+        if (!allowedCategories.includes(event.category)) {
+            return res.status(400).json({
+                message: 'Invalid category',
+                allowed_categories: allowedCategories
+            });
+        }
+
+        if (
+            !Number.isFinite(Number(event.min_price)) ||
+            !Number.isFinite(Number(event.max_price)) ||
+            Number(event.min_price) < 0 ||
+            Number(event.max_price) < Number(event.min_price)
+        ) {
+            return res.status(400).json({
+                message: 'Invalid event prices'
             });
         }
 
@@ -151,17 +183,21 @@ async function updateEvent(req, res) {
             });
         }
 
+        event.image_url = req.file
+            ? `/images/${req.file.filename}`
+            : existingEvent.image_url;
+
         await eventsService.updateEvent(id, event);
 
         const updatedEvent = await eventsService.getEventById(id);
 
-        res.status(200).json({
+        return res.status(200).json({
             message: 'Event updated successfully',
             event: updatedEvent
         });
 
     } catch (error) {
-        res.status(500).json({
+        return res.status(500).json({
             message: 'Error updating event',
             error: error.message
         });

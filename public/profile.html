@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi perfil | TicketForge</title>
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/profile.css">
+</head>
+<body>
+
+    <header class="home-header">
+        <div class="logo">TicketForge</div>
+
+        <nav class="main-nav">
+            <a href="./home.html" id="homeLink">Inicio</a>
+            <a href="./catalog.html">Catálogo</a>
+            <a href="./profile.html" class="active">Mi perfil</a>
+
+            <div class="user-menu-container" id="userMenuContainer">
+                <button id="userButton" class="header-icon"
+                        type="button" aria-label="Mi cuenta">👤</button>
+
+                <div id="userDropdown" class="user-dropdown hidden">
+                    <p id="userGreeting"></p>
+                    <a href="./my-tickets.html" class="dropdown-link">
+                        Mis entradas
+                    </a>
+                    <button id="logoutButton" type="button">
+                        Cerrar sesión
+                    </button>
+                </div>
+            </div>
+
+            <a href="./index.html" id="loginLink" class="hidden">
+                Iniciar sesión
+            </a>
+        </nav>
+    </header>
+
+    <main class="profile-container">
+
+        <h1>Mi perfil</h1>
+        <p class="profile-subtitle">
+            Consulta tu información personal y tu actividad en TicketForge.
+        </p>
+
+        
+        <section class="profile-user-card">
+
+            <div class="profile-avatar">
+                <span>♙</span>
+            </div>
+
+            <div class="profile-user-data">
+                <h2 id="profileName">Cargando usuario...</h2>
+                <p id="profileEmail">Consultando información...</p>
+            </div>
+
+            <span class="profile-role" id="profileRole">Cliente</span>
+
+        </section>
+
+      
+        <section class="profile-summary">
+
+            <article class="summary-card">
+                <div class="summary-icon ticket-icon">♧</div>
+                <h3 id="totalEntradas">0</h3>
+                <p>Boletos</p>
+            </article>
+
+            <article class="summary-card">
+                <div class="summary-icon review-icon">☆</div>
+                <h3 id="totalResenas">0</h3>
+                <p>Reseñas</p>
+            </article>
+
+        </section>
+
+    </main>
+
+    <script src="./js/home.js"></script>
+    <script src="./js/profile.js"></script>
+
+</body>
+</html>

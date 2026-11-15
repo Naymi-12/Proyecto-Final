@@ -17,7 +17,7 @@ app.use(express.json());
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.use(express.static('public'));
+app.use(express.static('public', { index: 'home.html' }));
 
 app.get('/', (req, res) => {
     res.json({

@@ -1,0 +1,159 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleccionar entradas - TicketForge</title>
+
+    
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+
+    <header class="home-header">
+        <h1>TicketForge</h1>
+
+        <nav class="header-actions">
+
+            <div id="userMenuContainer" class="user-menu-container">
+                <button id="userButton" class="header-icon"
+                        type="button" aria-label="Menú de usuario">
+                    👤
+                </button>
+
+                <div id="userDropdown" class="user-dropdown hidden">
+                    <p id="userGreeting"></p>
+                    <a href="./my-tickets.html" class="dropdown-link">
+                        Mis entradas
+                    </a>
+                    <button id="logoutButton" type="button">
+                        Cerrar sesión
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="select-page">
+
+        <a href="#" id="backButton" class="select-back-link">
+            ← Volver
+        </a>
+
+        <div class="select-layout">
+
+        
+            <section class="select-event-column">
+
+                <div id="eventImage" class="select-event-image"></div>
+
+                <span id="eventCategory" class="select-event-category"></span>
+
+                <h1 id="eventName">Cargando evento...</h1>
+
+                <div class="select-event-details">
+                    <div>
+                        <span>FECHA</span>
+                        <strong id="eventDate">--</strong>
+                    </div>
+
+                    <div>
+                        <span>HORA</span>
+                        <strong id="eventTime">--</strong>
+                    </div>
+
+                    <div>
+                        <span>LUGAR</span>
+                        <strong id="eventLocation">--</strong>
+                    </div>
+                </div>
+
+                <div class="select-event-description">
+                    <h3>Acerca del evento</h3>
+                    <p id="eventDescription">
+                        Cargando información...
+                    </p>
+                </div>
+
+                <div id="categoryDetails" class="select-category-details"></div>
+
+            </section>
+
+          
+            <section class="select-ticket-column">
+
+                <h2>Seleccionar Boletas</h2>
+
+                <div class="select-ticket-card">
+
+                    <label class="select-ticket-option">
+                        <input
+                            type="radio"
+                            name="ticketType"
+                            value="Platea VIP"
+                            checked
+                        >
+
+                        <span class="select-option-info">
+                            <strong>Platea VIP</strong>
+                            <small>Incluye acceso prioritario</small>
+                        </span>
+
+                        <strong id="vipPrice">$0</strong>
+                    </label>
+
+                    <label class="select-ticket-option">
+                        <input
+                            type="radio"
+                            name="ticketType"
+                            value="General Preferencial"
+                        >
+
+                        <span class="select-option-info">
+                            <strong>General Preferencial</strong>
+                            <small>Ubicación de pie frente al escenario</small>
+                        </span>
+
+                        <strong id="generalPrice">$0</strong>
+                    </label>
+
+                    <div class="select-quantity">
+                        <strong>Cantidad de entradas:</strong>
+
+                        <div>
+                            <button type="button" disabled>-</button>
+                            <span>1</span>
+                            <button type="button" disabled>+</button>
+                        </div>
+                    </div>
+
+                    <div class="select-total">
+                        <span>Total estimado:</span>
+                        <strong id="totalPrice">$0 COP</strong>
+                    </div>
+
+                    <button id="buyButton" class="select-buy-button"
+                            type="button">
+                        Comprar Entrada
+                    </button>
+
+                    <p class="select-secure-message">
+                        Compra segura con TicketForge
+                    </p>
+
+                    <p id="purchaseMessage" class="select-purchase-message"></p>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="./js/home.js"></script>
+    <script src="./js/select-tickets.js"></script>
+
+</body>
+</html>

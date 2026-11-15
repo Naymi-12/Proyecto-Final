@@ -8,6 +8,7 @@ const artistsController = require('../controllers/artists.controller');
 const verifyToken = require('../middlewares/auth.middleware');
 const { requireAdmin } = require('../middlewares/authorize.middleware');
 const sportDetailsController = require('../controllers/sportDetails.controller');
+const upload = require('../middlewares/upload.middleware');
 /**
  * @swagger
  * /api/events:
@@ -71,7 +72,7 @@ router.get('/:id', eventsController.getEventById);
  *     requestBody:
  *       required: true
  *       content:
- *         application/json:
+ *         multipart/form-data:
  *           schema:
  *             type: object
  *             required:
@@ -81,6 +82,8 @@ router.get('/:id', eventsController.getEventById);
  *               - category
  *               - min_price
  *               - max_price
+ *               - description
+ *               - image
  *             properties:
  *               name:
  *                 type: string
@@ -91,11 +94,10 @@ router.get('/:id', eventsController.getEventById);
  *               date_time:
  *                 type: string
  *                 format: date-time
- *                 example: "2026-12-20T20:00:00.000Z"
+ *                 example: "2026-12-20T20:00:00"
  *               category:
  *                 type: string
  *                 enum: [concert, sports, theater]
- *                 example: concert
  *               min_price:
  *                 type: number
  *                 example: 30000
@@ -105,6 +107,9 @@ router.get('/:id', eventsController.getEventById);
  *               description:
  *                 type: string
  *                 example: Live rock music event
+ *               image:
+ *                 type: string
+ *                 format: binary
  *     responses:
  *       201:
  *         description: Event created successfully
@@ -117,7 +122,8 @@ router.get('/:id', eventsController.getEventById);
  *       500:
  *         description: Error creating event
  */
-router.post('/', verifyToken, requireAdmin, eventsController.createEvent);
+router.post('/',verifyToken,requireAdmin,upload.single('image'), eventsController.createEvent
+);
 /**
  * @swagger
  * /api/events/{id}:
@@ -186,7 +192,7 @@ router.post('/', verifyToken, requireAdmin, eventsController.createEvent);
  *       500:
  *         description: Error updating event
  */
-router.put('/:id', verifyToken, requireAdmin, eventsController.updateEvent);
+router.put('/:id', verifyToken,requireAdmin,upload.single('image'),eventsController.updateEvent);
 /**
  * @swagger
  * /api/events/{id}:

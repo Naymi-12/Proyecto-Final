@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicketForge - Inicio</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+
+    <header class="home-header">
+
+      <div class="logo">TicketForge</div>
+
+        <nav class="main-nav">
+            <a href="./home.html" class="active">Inicio</a>
+            <a href="./catalog.html">Catálogo</a>
+
+            <a href="./index.html" id="loginLink">
+                Iniciar sesión
+            </a>
+             <a href="./profile.html" id="profileLink">Mi perfil</a>
+           
+            <div class="user-menu-container hidden" id="userMenuContainer">
+
+                <button
+                    id="userButton"
+                    class="header-icon"
+                    type="button"
+                    title="Mi cuenta"
+                    aria-label="Mi cuenta">
+                    👤
+                </button>
+
+                <div id="userDropdown" class="user-dropdown hidden">
+            <p id="userGreeting"></p>
+
+            <a href="./my-tickets.html" class="dropdown-link">
+               Mis entradas
+           </a>
+
+            <button id="logoutButton" type="button">
+              Cerrar sesión
+              </button>
+                     </div>
+        
+
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <h2>
+                    ¡Los mejores eventos<br>
+                    están en TicketForge!
+                </h2>
+
+                <a href="./catalog.html" class="buy-tickets-btn">
+                 Comprar Entradas
+                 </a>
+
+            </div>
+
+        </section>
+
+        <section class="featured-section">
+
+            <div class="section-heading">
+                <h2>Catálogo</h2>
+                <a href="./catalog.html">Ver más</a>
+            </div>
+
+            <div id="featuredEvents" class="events-grid">
+                <p>Cargando eventos...</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="./js/events.js"></script>
+    <script src="./js/home.js"></script>
+    
+
+</body>
+</html>

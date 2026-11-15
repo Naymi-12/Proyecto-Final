@@ -22,6 +22,8 @@ async function getEventById(id) {
     return rows[0];
 }
 
+
+
 async function createEvent(event) {
     const {
         name,
@@ -30,18 +32,64 @@ async function createEvent(event) {
         category,
         min_price,
         max_price,
-        description
+        description,
+        image_url
     } = event;
 
-    const [result] = await pool.query(
-        `INSERT INTO events
-        (name, location, date_time, category, min_price, max_price, description)
-        VALUES (?, ?, ?, ?, ?, ?, ?)`,
-        [name, location, date_time, category, min_price, max_price, description]
-    );
+    const connection = await pool.getConnection();
 
-    return result.insertId;
+    try {
+        await connection.beginTransaction();
+
+        const [result] = await connection.query(
+            `INSERT INTO events
+            (
+                name,
+                location,
+                date_time,
+                category,
+                min_price,
+                max_price,
+                description,
+                image_url
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+            [
+                name,
+                location,
+                date_time,
+                category,
+                min_price,
+                max_price,
+                description,
+                image_url
+            ]
+        );
+
+        const eventId = result.insertId;
+
+       if (category === 'concert') {
+    await connection.query(
+        `INSERT INTO concert_details
+         (event_id, presentation_schedule)
+         VALUES (?, ?)`,
+        [eventId, 'Horario pendiente']
+    );
 }
+
+        await connection.commit();
+
+        return eventId;
+
+    } catch (error) {
+        await connection.rollback();
+        throw error;
+
+    } finally {
+        connection.release();
+    }
+}
+
 
 async function updateEvent(id, event) {
     const {
@@ -51,7 +99,8 @@ async function updateEvent(id, event) {
         category,
         min_price,
         max_price,
-        description
+        description,
+        image_url
     } = event;
 
     const [result] = await pool.query(
@@ -62,7 +111,8 @@ async function updateEvent(id, event) {
             category = ?,
             min_price = ?,
             max_price = ?,
-            description = ?
+            description = ?,
+            image_url = ?
         WHERE event_id = ?`,
         [
             name,
@@ -72,6 +122,7 @@ async function updateEvent(id, event) {
             min_price,
             max_price,
             description,
+            image_url,
             id
         ]
     );

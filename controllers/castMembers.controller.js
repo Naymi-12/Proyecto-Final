@@ -91,9 +91,85 @@ async function deleteCastMember(req, res) {
     }
 }
 
+async function getCastMembersByEventId(req, res) {
+    try {
+        const eventId = req.params.id;
+
+        const castMembers = await castMembersService.getCastMembersByEventId(eventId);
+
+        return res.status(200).json(castMembers);
+
+    } catch (error) {
+        return res.status(500).json({
+            message: 'Error retrieving cast members for theater',
+            error: error.message
+        });
+    }
+}
+
+
+async function addCastMemberToTheater(req, res) {
+    try {
+        const eventId = req.params.id;
+        const { cast_member_id } = req.body;
+
+        if (!cast_member_id || !Number.isInteger(Number(cast_member_id))) {
+            return res.status(400).json({
+                message: 'A valid cast member ID is required'
+            });
+        }
+
+        const eventsService = require('../services/events.service');
+        const theater = await eventsService.getEventById(eventId);
+
+        if (!theater) {
+            return res.status(404).json({
+                message: 'Theater event not found'
+            });
+        }
+
+        if (theater.category !== 'theater') {
+            return res.status(400).json({
+                message: 'Cast members can only be assigned to theater events'
+            });
+        }
+
+        const castMember = await castMembersService.getCastMemberById(cast_member_id);
+
+        if (!castMember) {
+            return res.status(404).json({
+                message: 'Cast member not found'
+            });
+        }
+
+        await castMembersService.addCastMemberToTheater(eventId, cast_member_id);
+
+        return res.status(201).json({
+            message: 'Cast member assigned to theater successfully',
+            event_id: Number(eventId),
+            cast_member_id: Number(cast_member_id)
+        });
+
+    } catch (error) {
+        if (error.code === 'ER_DUP_ENTRY') {
+            return res.status(409).json({
+                message: 'This cast member is already assigned to this theater'
+            });
+        }
+
+        return res.status(500).json({
+            message: 'Error assigning cast member to theater',
+            error: error.message
+        });
+    }
+
+}
+
 module.exports = {
     getAllCastMembers,
     getCastMemberById,
     createCastMember,
-    deleteCastMember
+    deleteCastMember,
+    getCastMembersByEventId,
+    addCastMemberToTheater  
 };
