@@ -54,6 +54,7 @@ async function getTicketsByUserId(userId) {
     return rows;
 }
 
+
 async function completeFinishedEventTickets() {
     const [result] = await pool.query(
         `UPDATE tickets t
@@ -75,6 +76,7 @@ async function completeFinishedEventTickets() {
 
     return result.affectedRows;
 }
+
 
 async function getDailySales() {
     const [rows] = await pool.query(
