@@ -1,7 +1,7 @@
 const config = {
     host: 'localhost',
     user: 'root',
-    password: 'root',
+    password: 'Taekook7',
     database: 'ticketforge_db'
 };
 
